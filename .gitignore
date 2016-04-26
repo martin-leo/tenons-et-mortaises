@@ -1,0 +1,27 @@
+# processwire files
+/COPYRIGHT.txt
+/htaccess.txt
+/.htaccess
+/index.php
+/install.php
+/LICENSE.txt
+/README.md
+/site
+/site-beginner
+/site-blank
+/site-classic
+/site-default
+/site-languages
+/wire
+
+# temporary files
+tmp/
+
+# modules
+modules/
+
+# grunt workflow
+node_modules
+
+# sass
+.sass-cache
