@@ -1,0 +1,17 @@
+/* styles pour l'affichage des variables du contrôleur en tableau */
+
+body {
+  color: #222;
+  background: #ccc;
+  font-family: helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+/* fin des styles pour l'affichage des variables du contrôleur en tableau */
