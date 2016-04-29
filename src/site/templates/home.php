@@ -1,6 +1,6 @@
 <?php
 include_once("./_init.php");
-include_once("./func.php");
+include_once("./_func.php");
 
 include_once("./view/common/v_header.php"); // header
 include_once("./controller/pages/c_home.php"); // controller
