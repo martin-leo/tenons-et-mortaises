@@ -22,7 +22,7 @@ class Theme {
 class Liste_themes {
   /* Représente une liste de thème via la propriété $liste.
   echo utilisé avec un objet Liste_themes renvoie une liste
-  de classe themes contenant les différents thèmes.
+  de classe themes-secondaires contenant les différents thèmes.
   */
   public $liste;
 
@@ -36,7 +36,7 @@ class Liste_themes {
   }
 
   public function __tostring() {
-    $output = '<ul class="themes">';
+    $output = '<ul class="themes-secondaires">';
     foreach ($this->liste as $theme) {
       $output .= "<li>$theme</li>";
     }
