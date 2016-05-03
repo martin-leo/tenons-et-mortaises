@@ -60,11 +60,6 @@ module.exports = function (grunt) {
           {expand: true, cwd: 'src', src: ['site/templates/**'], dest: ''},
         ],
       },
-      modules: { // copie des modules
-        files: [
-          {expand: true, cwd: 'src', src: ['site/modules/**'], dest: ''},
-        ],
-      },
     },
 
     // surveillance des répertoires
@@ -90,6 +85,4 @@ module.exports = function (grunt) {
   // registerTask
   grunt.registerTask('default', ['concat:dev', 'sass:dev', 'copy:templates', 'watch']);
   grunt.registerTask('prod', ['concat:prod', 'sass:prod', 'closure-compiler:prod', 'copy:templates']);
-  grunt.registerTask('modules', ['copy:modules']);
-  grunt.registerTask('templates', ['copy:templates']);
 };
