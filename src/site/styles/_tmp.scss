@@ -14,4 +14,13 @@ td {
   border: 1px solid black;
   padding: 10px 20px;
 }
+td:first-child {
+  font-weight: bold;
+}
+
+.head {
+  background: black;
+  color: white;
+}
+
 /* fin des styles pour l'affichage des variables du contrôleur en tableau */
