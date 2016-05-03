@@ -2,6 +2,5 @@
 /*
 
 */
-extraction_donnees_basiques($page, $data);
-extraction_donnees_generique($page, $data);
+extraction_donnees_complexes($page, $data);
 ?>
