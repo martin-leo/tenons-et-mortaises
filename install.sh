@@ -46,6 +46,15 @@ rm FieldtypeMapMarker.zip
 # installation des plugins NPM
 npm install
 
+
+# ==========
+# installation de d3.js et cola.js
+curl -LkS 'https://d3js.org/d3.v3.min.js' -o d3.js
+curl -LkS 'http://marvl.infotech.monash.edu/webcola/cola.v3.min.js' -o cola.js
+mkdir site/assets/js
+mv d3.js site/assets/js
+mv cola.js site/assets/js
+
 # ==========
 # compilation/copie des templates/CSS/JS en version prod
 grunt prod
