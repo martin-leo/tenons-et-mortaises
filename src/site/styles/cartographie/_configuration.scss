@@ -1,0 +1,53 @@
+/* PARAMÈTRES */
+$nombre-themes: 3;
+
+/* nodes */
+$nodes-couleur-defaut: white;
+$nodes-opacite-defaut: 1;
+/* racine */
+$nodes-racine-bordure: true;
+$nodes-racine-couleur: black;
+$nodes-racine-epaisseur: 10;
+/* thèmes */
+$nodes-themes-bordure: true;
+$nodes-themes-couleur: gold;
+$nodes-themes-epaisseur: 10;
+
+/* liens */
+$liens-couleurs-defaut: black;
+$liens-opacite-defaut: .5;
+/* liens de parenté */
+$liens-parente-epaisseur: 20;
+$liens-parente-opacite: .2;
+/* liens d'association */
+$liens-association-epaisseur: 10;
+$liens-association-opacite: .8;
+
+/* COULEURS */
+
+/* contenu */
+$contenu-fond: #eee;
+$article-fond: #fefefe;
+
+/* objet SVG */
+$svg-couleur-fond: white;
+
+/* thèmes */
+$noms-themes: biens-communs,
+              métèquerie,
+              l-ennemi-où-est-la-domination,
+              ;
+
+$couleurs-themes: mediumblue,
+                  firebrick,
+                  mediumseagreen,
+                  deeppink,
+                  darkblue,
+                  blue,
+                  cadetblue,
+                  darkslategrey,
+                  darkorange,
+                  crimson,
+                  navy,
+                  mediumslateblue,
+                  ;

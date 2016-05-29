@@ -1,0 +1,35 @@
+.node {
+  //opacity: .5;
+}
+.node.highlighted {
+    stroke: gold;
+    stroke-width: 2;
+}
+.node.n1 {
+  //display: none;
+}
+
+[data-highlighted='réseau'] .node, [data-highlighted^="theme-"] .node {
+  opacity: .2;
+}
+
+/* cycle d'assignement des couleurs */
+@for $i from 1 through $nombre-themes {
+  //g.theme_#{$i} {
+  g.#{nth($noms-themes, $i)} {
+    fill: nth($couleurs-themes, $i)
+  }
+  [data-highlighted=#{nth($noms-themes, $i)}] .node {
+    opacity: .2;
+  }
+  [data-highlighted=#{nth($noms-themes, $i)}] .node.#{nth($noms-themes, $i)} {
+    opacity: 1;
+    stroke: gold;
+    stroke-width: 2;
+  }
+}
+
+
+.node.highlighted {
+  opacity: 1;
+}
