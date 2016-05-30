@@ -58,9 +58,9 @@ var carte = (function () {
   var node_taille_base = 4;
   var node_taille_coeff = 6;
 
-  var link_distance_base = 50;
   var link_distance_diviseur = 32; // relatif à la taille de l'écran
   var link_distance_coeff = 10;
+  var link_distance_minimum = 15;
 
   carte = document.getElementById('carte');
 
@@ -78,7 +78,7 @@ var carte = (function () {
     //width = carte.clientWidth;
     //height = carte.clientHeight;
     var etalon = width > height ? height : width;
-    var minimum = 15;
+    var minimum = link_distance_minimum;
     etalon /= link_distance_diviseur;
     if (d.nature === "parenté") {
       // liens de parenté
@@ -91,7 +91,7 @@ var carte = (function () {
       }
     } else {
       // liens d'association
-      return minimum < etalon ? etalon : minimum;;
+      return minimum < etalon ? etalon : minimum;
     }
   }
 
@@ -180,6 +180,28 @@ var carte = (function () {
 
     // sélection côté svg : objet svg appendé à body
     svg = d3.select("#carte").append("svg").attr("width", width).attr("height", height);
+    // defs (marqueurs pour fléchage)
+    // début
+    var defs = svg.append('defs')
+    defs.append("marker").attr('id', 'pointe-debut')
+                         .attr('orient', 'auto')
+                         .attr('markerHeight', '6')
+                         .attr('markerWidth', '6')
+                         .attr('refX', '-15')
+                         .attr('viewBox', '-10 -5 10 10')
+                         .attr('orient', 'auto')
+                         .append("path")
+                           .attr('d', 'M0,-5L-10,0L0,5')
+    // fin
+    defs.append("marker").attr('id', 'pointe-fin')
+                         .attr('orient', 'auto')
+                         .attr('markerHeight', '6')
+                         .attr('markerWidth', '6')
+                         .attr('refX', '15')
+                         .attr('viewBox', '0 -5 10 10')
+                         .attr('orient', 'auto')
+                         .append("path")
+                           .attr('d', 'M0,-5L10,0L0,5')
     // création du zoom
     zoom = d3.behavior.zoom().scaleExtent([zoom_min, zoom_max])
     // création d'un conteneur dans svg et stockage dans var conteneur
@@ -198,13 +220,15 @@ var carte = (function () {
       .enter().append('line') // pour les donnée entrantes (toutes), on ajoute une line au graph
       .attr('id', link_id) // on leur met un id (si lien associatif)
       .attr('class', link_classes) // on leur met la classe link
-      objet_carte.selections.nodes = conteneur.selectAll(".node")
-        .data(graph.nodes) // bind des datas
-        .enter().append("g")
-        .attr('class', node_classes)
-        .attr('id', node_id)
-        .append('circle').attr('r', node_size)
-        .call(force.drag) // force drag (redondant avec le zoom ?)
+    objet_carte.selections.nodes = conteneur.selectAll(".node")
+      .data(graph.nodes) // bind des datas
+      .enter().append("g")
+      .attr('class', node_classes)
+      .attr('id', node_id)
+      .append('circle').attr('r', node_size)
+      .call(force.drag) // force drag (redondant avec le zoom ?)
+    objet_carte.selections.associations = conteneur.selectAll(".association")
+      .attr('marker-end', 'url(#pointe-fin)');
   }
 
   /* ----------
