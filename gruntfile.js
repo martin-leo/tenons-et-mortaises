@@ -10,12 +10,18 @@ module.exports = function (grunt) {
     // concaténation des fichiers javascript
     concat: {
       dev: {
-        src: ['src/site/scripts/*.js'],
+        src: [
+          'additional_assets/js/*',
+          'src/site/scripts/*.js',
+        ],
         dest: 'site/templates/scripts/s.js',
       },
       prod: {
-        src: ['src/site/scripts/*.js'],
-        dest: 'src/tmp/s.uncompiled.js', // fichier passé au Google closure compiler
+        src: [
+          'additional_assets/js/*',
+          'src/site/scripts/*.js',
+        ],
+        dest: 'src/tmp/s.uncompiled.js', // fichier a passer au Google Closure Compiler
       },
     },
 

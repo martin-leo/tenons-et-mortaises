@@ -19,6 +19,9 @@ tmp/
 # modules
 modules/
 
+# js external libraries
+/additional_assets
+
 # grunt workflow
 node_modules
 
