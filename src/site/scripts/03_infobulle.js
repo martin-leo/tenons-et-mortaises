@@ -15,7 +15,7 @@ var infobulle = (function(){
   var message_vide = '<h2>infobulle vide</h2><p>Pas de contenu survolé actuellement</p>';
 
   // constructeur appelé en fin de fonction
-  constructeur = function () {
+  var constructeur = function () {
     /* créé l'élément infobulle et l'insère dans le DOM
     Void -> Void */
     var a = document.createElement("section");
