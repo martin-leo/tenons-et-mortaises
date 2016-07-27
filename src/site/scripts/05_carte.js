@@ -187,28 +187,6 @@ var carte = (function () {
 
     // sélection côté svg : objet svg appendé à body
     svg = d3.select("#carte").append("svg").attr("width", width).attr("height", height);
-    // defs (marqueurs pour fléchage)
-    // début
-    var defs = svg.append('defs')
-    defs.append("marker").attr('id', 'pointe-debut')
-                         .attr('orient', 'auto')
-                         .attr('markerHeight', '6')
-                         .attr('markerWidth', '6')
-                         .attr('refX', '-15')
-                         .attr('viewBox', '-10 -5 10 10')
-                         .attr('orient', 'auto')
-                         .append("path")
-                           .attr('d', 'M0,-5L-10,0L0,5')
-    // fin
-    defs.append("marker").attr('id', 'pointe-fin')
-                         .attr('orient', 'auto')
-                         .attr('markerHeight', '6')
-                         .attr('markerWidth', '6')
-                         .attr('refX', '15')
-                         .attr('viewBox', '0 -5 10 10')
-                         .attr('orient', 'auto')
-                         .append("path")
-                           .attr('d', 'M0,-5L10,0L0,5')
     // création du zoom
     zoom = d3.behavior.zoom().scaleExtent([zoom_min, zoom_max])
     // création d'un conteneur dans svg et stockage dans var conteneur
