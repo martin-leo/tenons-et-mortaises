@@ -11,6 +11,11 @@ interactions = (function() {
   var network;
   var tem_data;
 
+  // variable de stockage du timestamp lors d'un mousedown sur la carte
+  var timestamp_mousedown;
+  // durée entre un mousedown et mouseup en dessous de laquelle on considèrera qu'il s'agit d'un clic.
+  var duree_pour_clic = 100;
+
   interactions.configure = function (_tem_data, _network) {
     /* Référencement de l'objet network pour usage par l'objet interactions
     Object -> Void */
@@ -18,11 +23,29 @@ interactions = (function() {
     tem_data = _tem_data;
   }
 
+  interactions.mousedown = function () {
+    /* Enregistre le timestamp lors d'un mousedown
+    Void -> Void */
+    timestamp_mousedown = Date.now();
+  }
+
+  interactions.clic = function () {
+    /* Renvoie un booléen selon que la différence entre le timestamp enregistré lors du mousedown et inférieur ou non à la valeur paramétrée pour définir ce qui est de l'ordre du clic ou non
+    Void -> Boolean */
+    if ( Date.now() - timestamp_mousedown > duree_pour_clic) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   interactions.afficher_infobulle = function (node) {
     /* affiche une infobulle avec des informations sur le node donné
     Object -> Void */
     infobulle.modifier_contenu('<h1>' + node.titre +'</h1>');
     infobulle.afficher();
+    // positionner avant d'afficher peut générer un bug sur safari :
+    // offsetWidth renvoie 0.
     infobulle.positionner(node.x, node.y);
   }
 
