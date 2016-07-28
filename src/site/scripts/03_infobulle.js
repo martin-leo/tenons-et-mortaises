@@ -56,9 +56,10 @@ var infobulle = (function(){
     bulle.style.top = y + 'px';
   };
 
-  infobulle.modifier_contenu = function (contenu) {
+  infobulle.charger = function (node) {
     /* Modification du contenu de l'info-bulle
     String -> Void */
+    var contenu = '<h1>' + node.titre +'</h1><p>publié le 02/07/16</p>';
     bulle.innerHTML = contenu;
   };
 

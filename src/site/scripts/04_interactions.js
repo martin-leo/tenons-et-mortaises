@@ -42,7 +42,7 @@ interactions = (function() {
   interactions.afficher_infobulle = function (node) {
     /* affiche une infobulle avec des informations sur le node donné
     Object -> Void */
-    infobulle.modifier_contenu('<h1>' + node.titre +'</h1>');
+    infobulle.charger(node);
     infobulle.afficher();
     // positionner avant d'afficher peut générer un bug sur safari :
     // offsetWidth renvoie 0.
