@@ -1,29 +1,13 @@
-/* propriétés par défaut */
-html {
-  font-family: sans-serif;
-}
-h1 {
-  line-height: 2;
-}
-html, body, main {
+#carte {
   height: 100%;
   width: 100%;
-}
-
-main {
-  display: flex;
-}
-
-#carte, #contenu {
-  width: 50%;
-}
-#carte {
   overflow: hidden;
 }
 
 #contenu {
   background-color: $contenu-fond;
 }
+
 article {
   background: $article-fond;
   margin: 2em;
