@@ -32,8 +32,11 @@ interactions = (function() {
   interactions.clic = function () {
     /* Renvoie un booléen selon que la différence entre le timestamp enregistré lors du mousedown et inférieur ou non à la valeur paramétrée pour définir ce qui est de l'ordre du clic ou non
     Void -> Boolean */
+    // si la différence excède le paramètre duree_pour_clic
     if ( Date.now() - timestamp_mousedown > duree_pour_clic) {
+      // pas un 'clic chargement de contenu'
       return false;
+    // dans le cas contraire
     } else {
       return true;
     }
