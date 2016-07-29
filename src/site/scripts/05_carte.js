@@ -239,29 +239,78 @@ var carte = (function () {
 
     });
 
-    // Lorsque l'on clique sur la souris sur un node
-    objet_carte.selections.nodes.on("mousedown", function(d) {
-      d3.event.stopPropagation();
-      // si l'on bouge le curseur (= drag)
-      objet_carte.selections.nodes.on("mousemove", function(d) {
-        d3.event.stopPropagation();
-        interactions.bouger_infobulle(d);
+    // si on est sur un device tactile
+    if (device.touch) {
+      /* Trois événements à gérer en cas de device tactile :
+      1. clic sur la carte hors-node : fermeture et reset de l'infobulle si ouverte
+      2. clic sur un node : placement et ouverture de l'infobulle avec affichage du contenu correspondant
+      3. clic sur l'infobulle : chargement du contenu correspondant */
+
+      /* 1. clic sur la carte hors-node */
+      document.getElementById("carte").addEventListener('mouseup', function(e) {
+        /* lors d'un clic sur la carte, deux cas de figure :
+          - clic sur un élément avec un tagname svg ou line : on ferme l'info-bulle si elle est ouvert
+          - clic sur un élément avec un tagname circle : on ne fait rien, la gestion de l'infobulle dans ce cas est gérée par d3
+        */
+        if ( e.target.tagName !== 'circle' ) {
+          // clic par sur un node
+          interactions.enlever_infobulle();
+        }
+      }, false)
+      /* 2. Clic sur un node */
+      objet_carte.selections.nodes.on("mousedown", function(d) {
+        /* Lors d'un tap sur un node on affiche l'infobulle correspondante */
+        interactions.afficher_infobulle(d);
       });
-    });
+      /* 3. Clic sur l'infobulle */
+      document.getElementById('infobulle').addEventListener('mouseup', function(e) {
+        console.log('clic sur infobulle, chargement de contenu à implémenter');
+      }, false)
+    } else {
+      /* 3 cas de figure en cas de device non tactile :
+        1. Survol d'un node = affichage d'une infobulle + mise en avant du réseau associé
+        2. Clic court d'un node = chargement du contenu dans la page ou
+        3. clic long = drag du node ET de l'infobulle */
 
-    // lors du début du survol d'un node
-    objet_carte.selections.nodes.on("mouseenter", function(d) {
-      d3.event.stopPropagation();
-      interactions.afficher_infobulle(d);
-      interactions.echo(d);
-      interactions.highlight_network(d);
-    });
+      /* 1. lors du survol d'un node */
+      // au début du survol
+      objet_carte.selections.nodes.on("mouseenter", function(d) {
+        d3.event.stopPropagation();
+        interactions.afficher_infobulle(d);
+        interactions.highlight_network(d);
+      });
+      // à la fin du survol d'un node
+      objet_carte.selections.nodes.on("mouseout", function(d) {
+        interactions.enlever_infobulle();
+        interactions.remove_nodes_hightlights();
+      });
 
-    // à la fin du survol d'un node
-    objet_carte.selections.nodes.on("mouseout", function(d) {
-      interactions.enlever_infobulle();
-      interactions.remove_nodes_hightlights();
-    });
+      /* 2. clic court sur un node */
+      objet_carte.selections.nodes.on("mouseup", function(d) {
+        // pas de d3.event.stopPropagation(); ici ! Sinon bug !
+        // 1. clic court = chargement de contenu
+        if ( interactions.clic() ) {
+          doc.charger(d.id);
+        }
+        // on enlève l'écouteur pour le drag s'il n'y a pas eu de drag
+        objet_carte.selections.nodes.on("mousemove", null);
+      });
+
+      /* 3. clics longs sur un node */
+
+      objet_carte.selections.nodes.on("mousedown", function(d) {
+        d3.event.stopPropagation();
+        // on log le début du clic pour le mesurer
+        interactions.mousedown();
+        // si drag
+        objet_carte.selections.nodes.on("mousemove",function(){
+          interactions.enlever_infobulle();
+          // on enlève l'écouteur pour le faire qu'un fois
+          objet_carte.selections.nodes.on("mousemove", null);
+        });
+      });
+
+    }
 
     zoom.on("zoom", function() {
       /* Application du zoom

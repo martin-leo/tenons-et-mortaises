@@ -5,8 +5,8 @@ var doc = (function(){
   doc.charger = function (id) {
     /* charge l'article demandé dans le document
     String -> Void */
-    console.log('demande de chargement de l\'article ', id);
+    console.log('demande de chargement de l\'objet ', id);
   };
 
   return doc;
-});
+})();
