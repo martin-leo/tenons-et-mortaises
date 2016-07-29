@@ -16,12 +16,23 @@ module.exports = function (grunt) {
         ],
         dest: 'site/templates/scripts/s.js',
       },
-      prod: {
+      prod_pre_compilation: {
+        /* on concatène les fichiers qui ne sont pas d3 etc.
+        pour compilation avec closure-compiler
+        */
         src: [
-          'additional_assets/js/*',
           'src/site/scripts/*.js',
         ],
         dest: 'src/tmp/s.uncompiled.js', // fichier a passer au Google Closure Compiler
+      },
+      prod_post_compilation: {
+        /* on concatène les fichiers compilés et les libs externes minifiées
+        */
+        src: [
+          'additional_assets/js/*',
+          'src/tmp/s.compiled.js',
+        ],
+        dest: '/site/templates/scripts/s.js', // fichier définitif
       },
     },
 
@@ -50,11 +61,12 @@ module.exports = function (grunt) {
     'closure-compiler': {
       prod: {
         files: {
-          'site/templates/scripts/s.js': 'src/tmp/s.uncompiled.js',
+          'site/tmp/s.compiled.js': 'src/tmp/s.uncompiled.js',
         },
         options: {
-          compilation_level: 'ADVANCED',
+          compilation_level: 'SIMPLE',
           language_in: 'ECMASCRIPT5_STRICT',
+          debug: true,
         },
       },
     },
@@ -68,6 +80,18 @@ module.exports = function (grunt) {
       },
     },
 
+    // suppression des commentaires
+    // Supprime tous les commentaires // et /* */ même hors balises php/js
+    comments: {
+      traitement: {
+        options: {
+            singleline: true,
+            multiline: true
+        },
+        src: [ 'site/templates/**/*.php']
+      },
+    },
+
     // surveillance des répertoires
     watch: {
       options: {
@@ -76,7 +100,7 @@ module.exports = function (grunt) {
       },
       script: {
         files: ['src/site/**/*'],
-        tasks: ['concat:dev', 'sass:dev', 'copy:templates'],
+        tasks: ['concat:dev', 'sass:dev', 'copy:templates', 'comments'],
       },
     },
 
@@ -87,8 +111,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-stripcomments');
 
   // registerTask
-  grunt.registerTask('default', ['concat:dev', 'sass:dev', 'copy:templates', 'watch']);
-  grunt.registerTask('prod', ['concat:prod', 'sass:prod', 'closure-compiler:prod', 'copy:templates']);
+  grunt.registerTask('default', ['concat:dev', 'sass:dev','copy:templates',  'comments', 'watch']);
+  grunt.registerTask('prod', ['concat:prod_pre_compilation', 'sass:prod', 'closure-compiler:prod', 'concat:prod_pre_compilation', 'copy:templates', 'comments']);
 };
