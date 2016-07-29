@@ -2,6 +2,12 @@ interactions = (function() {
   /* Interactions avec la carte
   Void -> Object
   Méthode :
+  * configure() : Liens aux données
+  * mousedown() : timestamp de l'event mousedown pour calcul de la durée du clic
+  * clic() : différencie clic court et clic pas court
+  * afficher_infobulle() : affiche une infobulle relative à un node
+  * bouger_infobulle() : positionne une infobulle par rapport à un node
+  * enlever_infobulle() : reset et cache l'infobulle
   * highlight_network() : applique une classe css de higlight à un réseau de nodes
   * remove_nodes_hightlights() : supprime les classes css de highlight présentes
   */
