@@ -6,7 +6,6 @@ interactions = (function() {
   * mousedown() : timestamp de l'event mousedown pour calcul de la durée du clic
   * clic() : différencie clic court et clic pas court
   * afficher_infobulle() : affiche une infobulle relative à un node
-  * bouger_infobulle() : positionne une infobulle par rapport à un node
   * enlever_infobulle() : reset et cache l'infobulle
   * highlight_network() : applique une classe css de higlight à un réseau de nodes
   * remove_nodes_hightlights() : supprime les classes css de highlight présentes
@@ -54,12 +53,6 @@ interactions = (function() {
     infobulle.afficher();
     // positionner avant d'afficher peut générer un bug sur safari :
     // offsetWidth renvoie 0.
-    infobulle.positionner(node.x, node.y);
-  }
-
-  interactions.bouger_infobulle = function (node) {
-    /* positionne l'infobulle
-    Object -> Void */
     infobulle.positionner(node.x, node.y);
   }
 
