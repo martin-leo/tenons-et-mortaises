@@ -51,6 +51,23 @@ main {
     > div:nth-of-type(2){
       display: flex;
       background: red;
+      padding: 1em; // todo
+      > div:nth-of-type(1){
+        padding-right: .5em;
+        width: 75%;
+      }
+      > div:nth-of-type(2){
+        width: 25%;
+      }
+    }
+    p:not(:first-of-type) {
+      margin: 1em auto; // todo
+    }
+    aside {
+        padding-left: .5em;
     }
   }
+}
+img {
+  max-width: 100%;
 }
