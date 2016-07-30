@@ -29,3 +29,28 @@ td:first-child {
 svg {
   background: #cfcfcf;
 }
+
+
+main header{
+  h2 {
+    font-size: 4em; // todo titre article
+  }
+  ul, ul+p {
+    display: inline-block;
+  }
+  ul, p {
+    font-family: "Courier New";
+    font-size: .8em;
+  }
+}
+
+main {
+  article {
+    display: flex;
+    flex-flow: column;
+    > div:nth-of-type(2){
+      display: flex;
+      background: red;
+    }
+  }
+}
