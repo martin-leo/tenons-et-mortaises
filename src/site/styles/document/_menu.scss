@@ -1,0 +1,13 @@
+nav {
+  display: flex;
+  background: #ffff00; // todo
+  ul {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content:flex-end;
+    li {
+      display: inline-block;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-/* cartgraphie */
+/* cartographie */
 @import "cartographie/reset";
 @import "cartographie/configuration";
 @import "cartographie/graph";
@@ -6,7 +6,10 @@
 @import "cartographie/links";
 @import "cartographie/infobulle";
 /* pages */
+@import "document/configuration";
 @import "document/base";
 @import "document/menu";
+/* media queries */
+@import "document/media-queries";
 /* tmp */
 @import 'tmp';
