@@ -1,5 +1,5 @@
 #carte {
-  height: calc(100% - #{2 * $TP + $N}em);
+  height: calc(100% - #{$TP + $N}em);
   width: 100%;
   overflow: hidden;
 }
