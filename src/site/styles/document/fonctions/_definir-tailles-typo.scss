@@ -17,5 +17,6 @@
   $TG:    nth($tailles, 5) !global;
   $TTG:   nth($tailles, 6) !global;
   $TTTG:  nth($tailles, 7) !global;
+  @debug($tailles);
   @return null;
 }

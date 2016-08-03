@@ -2,7 +2,6 @@
 $breakpoints: 320,
               ;
 
-
 /* Couleurs pour la carte */
 $couleurs: #FF0000,
            #BF1199,
@@ -34,3 +33,8 @@ $couleurs-identite: nth($couleurs, 1),
                     nth($couleurs, 4),
                     nth($couleurs, 8),
                     ;
+
+
+/* typographie */
+
+$null : definir-tailles-typo( fibonacci( .5 .8, 7 ) )

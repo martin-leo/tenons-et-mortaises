@@ -4,6 +4,8 @@ body {
   color: #222;
   //background: #ccc;
   font-family: helvetica, sans-serif;
+  font-size: #{$N}em;
+  line-height: #{$N}em;
 }
 
 /* tables pour la visualisation des données sortantes de PW */
@@ -33,14 +35,14 @@ svg {
 
 main header{
   h2 {
-    font-size: 4em; // todo titre article
+    font-size: #{$G}em; // todo titre article
   }
   ul, ul+p {
     display: inline-block;
   }
   ul, p {
     font-family: "Courier New";
-    font-size: .8em;
+    font-size: #{$P}em;
   }
 }
 
@@ -48,10 +50,10 @@ main {
   article {
     > div:nth-of-type(2){
       background: #ccc;
-      padding: 1em; // todo
+      padding: #{$N}em // todo
     }
     p:not(:first-of-type) {
-      margin: 1em auto; // todo
+      margin: #{$N}em auto; // todo
     }
   }
 }
