@@ -24,6 +24,8 @@
           1.1.1. header pour *l'article* : titre, auteurs, etc
       */
       <header>
+        <?php $theme = get_theme($page); ?>
+        <?php echo "<p>Thèmes / <a href=\"" . $theme->url . "\">" . $theme->title . "</a></p>"; ?>
         <h2><?php echo $page->title ?></h2>
         <?php $format->imprimer_auteurs($page); ?>
         <?php $format->date_tem($page); ?>
@@ -41,7 +43,7 @@
         /*
             1.1.2. contenu de l'objet
         */
-        <section>
+        <section class="objet">
           <?php echo $Extra->text($page->contenu) ?>
         </section>
       </div>
