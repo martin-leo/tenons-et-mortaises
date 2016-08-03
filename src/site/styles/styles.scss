@@ -1,14 +1,21 @@
+/* pages */
+/* fonctions */
+@import "document/fonctions/fibonacci";
+@import "document/fonctions/definir-tailles-typo";
+/* abstract */
+@import "document/reset";
+@import "document/configuration";
+/* règles */
+@import "document/base";
+@import "document/menu";
 /* cartographie */
-@import "cartographie/reset";
+/* configuration*/
 @import "cartographie/configuration";
+/* règles */
 @import "cartographie/graph";
 @import "cartographie/nodes";
 @import "cartographie/links";
 @import "cartographie/infobulle";
-/* pages */
-@import "document/configuration";
-@import "document/base";
-@import "document/menu";
 /* media queries */
 @import "document/media-queries";
 /* tmp */

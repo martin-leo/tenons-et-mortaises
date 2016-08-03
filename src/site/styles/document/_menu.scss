@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  background: #ffff00; // todo
+  background: nth($couleurs-information, 1); // todo
   ul {
     flex-grow: 1;
     flex-wrap: wrap;

@@ -1,0 +1,21 @@
+@function definir-tailles-typo($tailles) {
+  /*
+  Défini de manière globale les tailles typo comme suit:
+  liste de nombres -> void
+  - TTTG très très très grand corps
+  - TTG très très grand corps
+  - TG très grand corps
+  - G grand corps
+  - N corps de texte
+  - P petit corps
+  - TP très petit corps
+  */
+  $TP:    nth($tailles, 1) !global;
+  $P:     nth($tailles, 2) !global;
+  $N:     nth($tailles, 3) !global;
+  $G:     nth($tailles, 4) !global;
+  $TG:    nth($tailles, 5) !global;
+  $TTG:   nth($tailles, 6) !global;
+  $TTTG:  nth($tailles, 7) !global;
+  @return null;
+}

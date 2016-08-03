@@ -47,17 +47,31 @@ main header{
 main {
   article {
     > div:nth-of-type(2){
-      background: red;
+      background: #ccc;
       padding: 1em; // todo
     }
     p:not(:first-of-type) {
       margin: 1em auto; // todo
     }
-    aside {
-        padding-left: .5em;
-    }
   }
 }
 img {
   max-width: 100%;
+}
+
+// notes de bas de page
+.footnote-ref {
+  font-variant-position: super; // positionner comme
+}
+.footnotes {
+  hr {}
+  ol {
+    li {}
+  }
+}
+
+
+nav { // menu
+  align-items: center; // center menu si deux lignes d'éléments
+  text-align: center; // centrer le texte pour la version mobile
 }
