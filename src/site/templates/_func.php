@@ -95,10 +95,10 @@ class PW_Tools {
     Page -> Void */
     if ($page->themes_secondaires->count > 0) {
     echo "<section>";
-      echo "<h4>Thèmes secondaires</h4>";
+      echo "<h3>Thèmes secondaires</h3>";
       echo "<ul>";
         foreach ($page->themes_secondaires as $theme) {
-          echo "<li><a href='$theme->url'>$theme->title</a></li>";
+          echo "<li class=\"element\"><a href='$theme->url'>$theme->title</a></li>";
         }
       echo "</ul>";
     echo "</section>";
@@ -108,19 +108,16 @@ class PW_Tools {
   public function imprimer_themes($page) {
     /* Imprime les thèmes associés à une page
     Page -> Void */
+    $themes = ($page->themes_secondaires->count > 0) ? true : false;
+    if ($themes) {
+      $this->imprimer_themes_secondaires($page);
+    }/* else {
+      echo "<h3>Thème</h3>";
+    }
     echo "<section>";
-      $themes = ($page->themes_secondaires->count > 0) ? true : false;
-      if ($themes) {
-        echo "<h3>Thèmes</h3>";
-      } else {
-        echo "<h3>Thème</h3>";
-      }
-      echo "<section>";
-        echo "<h4>Thème principal</h4>";
-        echo $page->theme;
-        $this->imprimer_themes_secondaires($page);
-      echo "</section>";
-    echo "</section>";
+      echo "<h4>Thème principal</h4>";
+      echo "<p class=\"element\"><a href=\"" . $page->theme->url . "\">" . $page->theme->titre . "</a></p>";
+    echo "</section>";*/
   }
 
   public function imprimer_objets_associes($page) {
@@ -132,7 +129,7 @@ class PW_Tools {
         echo "<ul>";
         foreach ($page->objets_associes as $objet) {
           print_r($objet->nature);
-          echo "<li>";
+          echo "<li class=\"element\">";
           echo "<a href='$objet->url'>";
           echo "<section>";
           echo "<p>".$this->determiner_nature($objet)." ajouté le ".date("d/m/Y.",$objet->date_de_publication_tem)."</p>";
@@ -154,7 +151,7 @@ class PW_Tools {
         echo "<h3>satellites</h3>";
         echo "<ul>";
         foreach ($page->children as $child) {
-          echo "<li><a href='{$child->url}'>{$child->title}</a></li>";
+          echo "<li class=\"element\"><a href='{$child->url}'>{$child->title}</a></li>";
         };
         echo "</ul>";
       echo "</section>";
