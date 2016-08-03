@@ -37,4 +37,6 @@ $couleurs-identite: nth($couleurs, 1),
 
 /* typographie */
 
-$null : definir-tailles-typo( fibonacci( .5 .8, 7 ) )
+$null: definir-tailles-typo( fibonacci( .6 .8, 7 ) );
+
+$line-height: $N;
