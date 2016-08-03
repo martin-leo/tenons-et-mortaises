@@ -10,9 +10,11 @@
 </section>
 
 /* Navigation */
-<nav>
-  <h2>Menu</h2>
+<nav id="menu">
+  <h2 hidden>Menu</h2>
+  <p>Tenons et Mortaises</p>
   <ul>
+    <li>carte</li>
     <li>événements</li>
     <li>thèmes</li>
     <li>objets récents</li>
