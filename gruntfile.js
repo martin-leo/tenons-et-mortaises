@@ -43,7 +43,7 @@ module.exports = function (grunt) {
           style: 'expanded',
         },
         files: {
-          'site/templates/styles/s.css': 'src/site/styles/styles.scss',
+          'site/templates/styles/s.css': 'src/site/styles/main.scss',
         },
       },
       prod: { // version prod : compressée et sans map

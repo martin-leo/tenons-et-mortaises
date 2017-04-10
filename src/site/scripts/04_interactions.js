@@ -1,4 +1,4 @@
-interactions = (function() {
+var interactions = (function() {
   /* Interactions avec la carte
   Void -> Object
   Méthode :

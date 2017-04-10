@@ -1,6 +1,7 @@
 var device = (function(){
   /* Regroupe des informations sur le device qui browse le site ! alerte jargon
   Void -> Void */
+  "use strict";
   var device = {};
   device.touch;
 
