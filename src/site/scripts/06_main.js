@@ -1,6 +1,6 @@
 /* Configuration et lancement de la cartographie dès téléchargement des données */
 
-tem_data.import('/site/assets/files/data.json',[go]);
+tem_data.import('/pw2/site/assets/files/data.json',[go]);
 interactions.configure(tem_data,network);
 
 

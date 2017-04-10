@@ -20,7 +20,9 @@ var infobulle = (function(){
     Void -> Void */
     var a = document.createElement("section");
     a.setAttribute('id', 'infobulle');
+    a.setAttribute('hidden', true);
     a.style.position = 'absolute';
+    a.style.display = 'none';
     a.innerHTML = message_vide;
     bulle = document.body.appendChild(a);
   };
@@ -28,6 +30,7 @@ var infobulle = (function(){
   infobulle.afficher = function () {
     /* affiche l'infobulle
     Void -> Void */
+    bulle.removeAttribute('hidden');
     bulle.style.display = 'block';
   };
 
@@ -35,6 +38,7 @@ var infobulle = (function(){
     /* cache l'infobulle
     Void -> Void */
     bulle.style.display = 'none';
+    bulle.setAttribute('hidden', true);
   };
 
   infobulle.mise_a_zero = function () {

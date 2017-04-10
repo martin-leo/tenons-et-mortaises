@@ -1,0 +1,11 @@
+nav {
+  flex-flow: column;
+  ul {
+    flex-flow: column;
+  }
+}
+
+aside {
+  margin-top: #{$N}em;
+  border-top: 1px solid $couleur-texte;
+}

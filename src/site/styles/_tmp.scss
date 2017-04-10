@@ -1,15 +1,38 @@
 /* styles pour l'affichage des variables du contrôleur en tableau */
 
 body {
-  color: #222;
+  color: $couleur-texte;
   //background: #ccc;
-  font-family: helvetica, sans-serif;
+  font-family: 'Times New Roman', serif;
+  font-size: #{$N}em;
+  line-height: $line-height;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: ArchivoNarrow;
+}
+h3, h4, h5, h6 {
+  margin: #{$P}em 0;
+}
+aside {
+  h2, h3, h4, h5, h6 {
+    font-family: Junicode;
+    margin: 0;
+  }
+}
+
+.objet p:not(:first-of-type) {
+  margin-top: #{$P}em;
+}
+.objet p:not(:last-of-type) {
+  margin-bottom: #{$P}em;
+}
+
+/* tables pour la visualisation des données sortantes de PW */
 
 table {
   border-collapse: collapse;
 }
-
 td {
   border: 1px solid black;
   padding: 10px 20px;
@@ -17,10 +40,105 @@ td {
 td:first-child {
   font-weight: bold;
 }
-
 .head {
   background: black;
   color: white;
 }
 
 /* fin des styles pour l'affichage des variables du contrôleur en tableau */
+
+main header{
+  p:first-of-type {
+    margin-bottom: #{$N}em;
+  }
+  ul:first-of-type {
+    margin-top: #{$G}em;
+  }
+  h2 {
+    font-size: #{$G}em; // todo titre article
+  }
+  ul, ul+p {
+    display: inline-block;
+  }
+  ul, p {
+    font-family: "Courier New";
+    font-size: #{$TP}em;
+  }
+}
+
+main {
+  padding: #{$N}em #{$P}em;
+  article {
+    > div:nth-of-type(2){
+    }
+    p:not(:first-of-type) {
+      //margin: #{$N}em auto; // todo
+    }
+  }
+}
+img {
+  max-width: 100%;
+}
+
+// notes de bas de page
+.footnote-ref {
+  font-variant-position: super; // positionner comme
+}
+.footnotes {
+  hr {}
+  ol {
+    li {}
+  }
+}
+
+
+nav { // menu
+  padding: #{$TP}em #{$P}em;
+  align-items: center; // center menu si deux lignes d'éléments
+  ul li {
+  text-align: center; // centrer le texte pour la version mobile
+  }
+  ul li:not(:first-of-type) {
+    margin: 0 0 0 #{$TP}em;
+  }
+}
+
+nav, article header h2 {
+  font-family: ArchivoNarrow;
+  line-height: 1;
+  margin-bottom: -.2em;
+}
+
+aside {
+  font-family: Junicode;
+}
+
+aside {
+  padding: #{$TP}em;
+  > section {
+    > p {
+      font-family: 'Courier New';
+      font-size: #{$TP}em;
+      line-height: $line-height;
+    }
+  }
+}
+
+.element {
+  background: nth($couleurs-information, 2);
+  margin: #{$TP}em -#{$P}em;
+  padding: #{$TP}em #{$P}em;
+  section p {
+    font-family: "Courier New";
+    font-size: #{$TP}em;
+  }
+}
+
+article {
+  img {
+    margin: #{$N}em 0;
+  }
+  header {
+    margin: 0 0 #{$P}em 0;
+  }
+}

@@ -1,0 +1,42 @@
+/* Breakpoints du site*/
+$breakpoints: 320,
+              ;
+
+/* Couleurs pour la carte */
+$couleurs: #FF0000,
+           #BF1199,
+           #7B2EEE,
+           #3457FF,
+           #358FD4,
+           #35C7A9,
+           #25E854,
+           #04BB00,
+           #7DB700,
+           #B7B700,
+           #B99100,
+           #B74A00,
+           ;
+
+/* Couleurs popur marquer l'information */
+$couleurs-information: #F0FF00,
+                       #EDEFE6,
+                       ;
+
+/* Couleur de texte */
+$couleur-texte: #1A1A1A;
+
+/* Couleur de fond de texte */
+$couleur-fond-texte: #FFFFFF;
+
+/**/
+$couleurs-identite: nth($couleurs, 1),
+                    nth($couleurs, 4),
+                    nth($couleurs, 8),
+                    ;
+
+
+/* typographie */
+
+$null: definir-tailles-typo( fibonacci( .6 .8, 7 ) );
+
+$line-height: $N;

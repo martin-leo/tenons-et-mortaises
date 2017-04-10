@@ -2,7 +2,11 @@ interactions = (function() {
   /* Interactions avec la carte
   Void -> Object
   Méthode :
-  * echo() : écrit les informations du node dans la display_zone
+  * configure() : Liens aux données
+  * mousedown() : timestamp de l'event mousedown pour calcul de la durée du clic
+  * clic() : différencie clic court et clic pas court
+  * afficher_infobulle() : affiche une infobulle relative à un node
+  * enlever_infobulle() : reset et cache l'infobulle
   * highlight_network() : applique une classe css de higlight à un réseau de nodes
   * remove_nodes_hightlights() : supprime les classes css de highlight présentes
   */
@@ -52,29 +56,12 @@ interactions = (function() {
     infobulle.positionner(node.x, node.y);
   }
 
-  interactions.bouger_infobulle = function (node) {
-    /* positionne l'infobulle
-    Object -> Void */
-    infobulle.positionner(node.x, node.y);
-  }
-
   interactions.enlever_infobulle = function () {
     /* Cache l'infobulle et met son contenu à zéro
     Void -> Void */
     infobulle.cacher();
     infobulle.mise_a_zero();
   };
-
-  interactions.echo = function (node) {
-    var texte = '<ul>';
-    texte += '<li>id : ' + node.id + '</li>';
-    texte += '<li>titre : ' + node.titre + '</li>';
-    if (node.theme_principal) texte += '<li>thème : ' + tem_data.index[node.theme_principal].titre + '</li>';
-    //else texte += '<li>thème : ' + node.titre + '</li>';
-    texte += '<li>url : ' + '<a href="' + node.url + '">'+ node.url + '</a></li>';
-    texte += '</ul>';
-    document.getElementById('display_zone').innerHTML = texte;
-  }
 
   interactions.highlight_network = function (d) {
     /* applique une classe css de higlight à un réseau de nodes

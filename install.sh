@@ -60,5 +60,31 @@ mv d3.js additional_assets/js
 mv cola.js additional_assets/js
 
 # ==========
+# installation des typographies nécessaires
+# structure de donnée
+mkdir site/templates/fonts
+
+# ArchivoNarrow
+
+# téléchargement
+curl -LkS 'http://omnibus-type.com/download/ArchivoNarrow-for-Web.zip' -o site/templates/fonts/ArchivoNarrow-for-Web.zip
+# unzip
+unzip site/assets/fonts/ArchivoNarrow-for-Web.zip -d site/templates/fonts/
+# suppression du zip d'origine
+rm site/templates/fonts/ArchivoNarrow-for-Web.zip
+
+# Junicode
+
+# téléchargement
+curl -LkS 'https://sourceforge.net/projects/junicode/files/junicode/junicode-0-7-8/junicode-woff-0-7-8.zip' -o site/templates/fonts/junicode-woff-0-7-8.zip
+# unzip
+unzip site/templates/fonts/junicode-woff-0-7-8.zip -d site/templates/fonts/
+# dossier junicode
+mkdir site/templates/fonts/junicode
+mv site/templates/fonts/junicode-woff/fonts/* site/templates/fonts/junicode/
+# suppression du zip d'origine
+rm -rf site/templates/fonts/junicode-woff site/templates/fonts/junicode-woff-0-7-8.zip
+
+# ==========
 # compilation/copie des templates/CSS/JS en version prod
 grunt prod
