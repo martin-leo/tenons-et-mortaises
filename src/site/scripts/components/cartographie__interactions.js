@@ -1,4 +1,4 @@
-var interactions = (function() {
+cartographie.interactions = (function() {
   /* Interactions avec la carte
   Void -> Object
   Méthode :
@@ -25,13 +25,13 @@ var interactions = (function() {
     Object -> Void */
     network = _network;
     tem_data = _tem_data;
-  }
+  };
 
   interactions.mousedown = function () {
     /* Enregistre le timestamp lors d'un mousedown
     Void -> Void */
     timestamp_mousedown = Date.now();
-  }
+  };
 
   interactions.clic = function () {
     /* Renvoie un booléen selon que la différence entre le timestamp enregistré lors du mousedown et inférieur ou non à la valeur paramétrée pour définir ce qui est de l'ordre du clic ou non
@@ -44,23 +44,23 @@ var interactions = (function() {
     } else {
       return true;
     }
-  }
+  };
 
-  interactions.afficher_infobulle = function (node) {
+  interactions.afficher_infobulle = function ( node ) {
     /* affiche une infobulle avec des informations sur le node donné
     Object -> Void */
-    infobulle.charger(node);
-    infobulle.afficher();
+    ui.infobulle.charger( node );
+    ui.infobulle.afficher();
     // positionner avant d'afficher peut générer un bug sur safari :
     // offsetWidth renvoie 0.
-    infobulle.positionner(node.x, node.y);
-  }
+    ui.infobulle.positionner( node.x, node.y );
+  };
 
   interactions.enlever_infobulle = function () {
     /* Cache l'infobulle et met son contenu à zéro
     Void -> Void */
-    infobulle.cacher();
-    infobulle.mise_a_zero();
+    ui.infobulle.cacher();
+    ui.infobulle.mise_a_zero();
   };
 
   interactions.highlight_network = function (d) {
@@ -69,7 +69,7 @@ var interactions = (function() {
     // Si l'on est sur un objet
     if (d.level !== 1) {
       highlight(true, 'réseau');
-      network.get_elements(tem_data.associations_liste, tem_data.associations_index, d, 1)
+      cartographie.network.get_elements(cartographie.tem_data.associations_liste, cartographie.tem_data.associations_index, d, 1)
              .forEach(function (id) {
                try { document.getElementById(id).classList.add('highlighted'); }
                catch (e) {
@@ -83,9 +83,9 @@ var interactions = (function() {
     }
     // Si l'on est sur un thème
     if (d.level !== 2) {
-      highlight(true, tem_data.nettoyer_chaine(d.titre));
+      highlight(true, cartographie.tem_data.nettoyer_chaine(d.titre));
     }
-  }
+  };
 
   interactions.remove_nodes_hightlights =  function () {
     /* Permet de disabler le highlight
@@ -95,7 +95,7 @@ var interactions = (function() {
      highlighted.item(0).classList.remove('highlighted');
     }
     highlight(false);
-  }
+  };
 
   function highlight(i, mode) {
     /* Prépare la carte pour la mise en avant de certains éléments

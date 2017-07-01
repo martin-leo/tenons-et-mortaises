@@ -1,4 +1,4 @@
-var network = (function(){
+cartographie.network = (function(){
   /* Permet d'isoler les nodes associés à un node donné sur un profondeur donnée
   Voir -> Object
   Méthodes :
@@ -29,7 +29,6 @@ var network = (function(){
     a_traiter.nodes = [node.id];
     data.liste = liste;
     data.index = index;
-    var profondeur = profondeur;
 
     while (a_traiter.nodes.length && profondeur) {
       var nodes = a_traiter.nodes;
@@ -38,7 +37,7 @@ var network = (function(){
       profondeur--;
     }
     return elements_connectes.liste;
-  }
+  };
 
   function process(node) {
     /* Traite le node donné ainsi que ceux associés

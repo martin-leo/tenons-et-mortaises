@@ -1,3 +1,17 @@
+%carte {
+  background: black;
+}
+.carte {
+  @extend %volet;
+  @extend %volet--contenu;
+  @extend %volet--1;
+  @extend %carte;
+}
+
+
+/* cartographie */
+
+
 $carte__liens__couleurs: (
   'default' : purple,
 ) !default;

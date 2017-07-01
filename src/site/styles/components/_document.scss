@@ -1,0 +1,152 @@
+%document {
+  background: rgba(255,255,255,1);
+  @extend %conteneur--marges;
+
+  @include respond-to('desktop') {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  @include respond-to('tablette-et-mobile') {
+    // on enlève la marge du haut
+    // sinon le blanc du menu + marge
+    // ça fait trop
+    padding-top: 0;
+  }
+
+  & iframe {
+    max-width: 100%;
+  }
+}
+
+// placeholder pour limiter la largeur de certains éléments sur la version large
+%document__element--largeur-limitee {
+  @include respond-to('desktop') {
+    max-width: 32em;
+    width: 100%;
+  }
+}
+
+%document__en-tete {
+  margin-bottom: ms(1);
+  @extend %document__element--largeur-limitee;
+}
+
+%document__titre {
+  @extend %titrage;
+  margin: ms(0) 0;
+}
+
+%document__titre--archives {
+  @extend %document__titre;
+  margin-bottom: 0;
+  //@extend %cache;
+}
+
+%document__auteurs {
+  @extend %texte-de-niveau-n;
+  &::before {
+    content: '✎';
+    margin-right: ms(-2);
+  }
+}
+
+%document__contenu {
+  width: 100%;
+  @extend %document__element--largeur-limitee;
+}
+
+%document__contenu--zone-de-texte {
+  @extend %document__contenu;
+  @extend %zone-de-texte;
+}
+
+%document__pied-de-page {
+  @extend %document__element--largeur-limitee;
+}
+
+%document__parution {
+  @extend %texte-de-niveau-n;
+  @extend %figurer-liens;
+  &::before {
+    content: '⋮';
+    margin-right: ms(-2);
+  }
+}
+
+%document__objets-associes {
+  @extend %document__element--largeur-limitee;
+  margin-top: ms(2);
+}
+
+%document__objets-associes__titre {
+  @extend %titrage;
+  margin-bottom: ms(0);
+}
+
+%document__aside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: ms(2) 0;
+  @extend %document__element--largeur-limitee;
+}
+
+%document__aside__titre {
+  @extend %titrage;
+  width: 100%;
+}
+
+%document__aside__titre--cache {
+  @extend %cache;
+}
+
+.document {
+  @extend %volet;
+  @extend %volet--3;
+  @extend %volet--contenu;
+  @extend %document;
+  &__en-tete {
+    @extend %document__en-tete;
+  }
+  &__breadcrumbs {
+    @extend %breadcrumbs !optional;
+  }
+  &__titre {
+    @extend %document__titre;
+    &--archives {
+      @extend %document__titre--archives;
+    }
+  }
+  &__auteurs {
+    @extend %document__auteurs;
+  }
+  &__contenu {
+    @extend %document__contenu;
+    &--article, &--theme {
+      @extend %document__contenu--zone-de-texte;
+    }
+  }
+  &__pied-de-page {
+    @extend %document__pied-de-page;
+  }
+  &__parution {
+    @extend %document__parution;
+  }
+  &__aside {
+    @extend %document__aside;
+    &__titre {
+      @extend %document__aside__titre;
+      &--theme {
+        @extend %document__aside__titre--cache;
+      }
+    }
+  }
+  &__objets-associes {
+    @extend %document__objets-associes;
+    &__titre {
+      @extend %document__objets-associes__titre;
+    }
+  }
+}

@@ -32,7 +32,6 @@ var carte = (function () {
   var objet_carte = {};
 
   objet_carte.selections = {};
-  var graph; // référence à l'objet tem_data
 
   // layout & behaviour d3js
   var force;
@@ -44,7 +43,7 @@ var carte = (function () {
   var conteneur;
 
   // graph
-  var graph = {};
+  var graph = {}; // référence à l'objet tem_data
 
   // variables
   var width;
@@ -127,8 +126,8 @@ var carte = (function () {
     Object -> String */
     var classes = '';
     classes +='node n' + d.level + ' ';
-    if (d.level === 1) classes += tem_data.nettoyer_chaine(d.titre) + ' ';
-    else classes += tem_data.nettoyer_chaine(tem_data.index[d.theme_principal].titre);
+    if (d.level === 1) classes += cartographie.tem_data.nettoyer_chaine(d.titre) + ' ';
+    else classes += cartographie.tem_data.nettoyer_chaine(cartographie.tem_data.index[d.theme_principal].titre);
     // classes += d.theme_principal ? 'theme_' + d.theme_principal + ' ': '';
     return classes;
   }
@@ -166,7 +165,7 @@ var carte = (function () {
 
     // on enregistre les nouvelles dimensions
     maj_dimensions();
-  }
+  };
 
   /* ----------
   3. Setup
@@ -188,10 +187,10 @@ var carte = (function () {
     // sélection côté svg : objet svg appendé à body
     svg = d3.select("#carte").append("svg").attr("width", width).attr("height", height);
     // création du zoom
-    zoom = d3.behavior.zoom().scaleExtent([zoom_min, zoom_max])
+    zoom = d3.behavior.zoom().scaleExtent([zoom_min, zoom_max]);
     // création d'un conteneur dans svg et stockage dans var conteneur
     conteneur = svg.append("g");
-  }
+  };
 
   /* ----------
   4. Sélections
@@ -214,7 +213,7 @@ var carte = (function () {
       .call(force.drag) // force drag (redondant avec le zoom ?)
     objet_carte.selections.associations = conteneur.selectAll(".association")
       .attr('marker-end', 'url(#pointe-fin)');
-  }
+  };
 
   /* ----------
   5. Événements
@@ -254,18 +253,18 @@ var carte = (function () {
         */
         if ( e.target.tagName !== 'circle' ) {
           // clic par sur un node
-          interactions.enlever_infobulle();
+          cartographie.interactions.enlever_infobulle();
         }
-      }, false)
+      }, false);
       /* 2. Clic sur un node */
       objet_carte.selections.nodes.on("mousedown", function(d) {
         /* Lors d'un tap sur un node on affiche l'infobulle correspondante */
-        interactions.afficher_infobulle(d);
+        cartographie.interactions.afficher_infobulle(d);
       });
       /* 3. Clic sur l'infobulle */
       document.getElementById('infobulle').addEventListener('mouseup', function(e) {
         console.log('clic sur infobulle, chargement de contenu à implémenter');
-      }, false)
+      }, false);
     } else {
       /* 3 cas de figure en cas de device non tactile :
         1. Survol d'un node = affichage d'une infobulle + mise en avant du réseau associé
@@ -276,21 +275,21 @@ var carte = (function () {
       // au début du survol
       objet_carte.selections.nodes.on("mouseenter", function(d) {
         d3.event.stopPropagation();
-        interactions.afficher_infobulle(d);
-        interactions.highlight_network(d);
+        cartographie.interactions.afficher_infobulle(d);
+        cartographie.interactions.highlight_network(d);
       });
       // à la fin du survol d'un node
       objet_carte.selections.nodes.on("mouseout", function(d) {
-        interactions.enlever_infobulle();
-        interactions.remove_nodes_hightlights();
+        cartographie.interactions.enlever_infobulle();
+        cartographie.interactions.remove_nodes_hightlights();
       });
 
       /* 2. clic court sur un node */
       objet_carte.selections.nodes.on("mouseup", function(d) {
         // pas de d3.event.stopPropagation(); ici ! Sinon bug !
         // 1. clic court = chargement de contenu
-        if ( interactions.clic() ) {
-          doc.charger(d.id);
+        if ( cartographie.interactions.clic() ) {
+          ui.doc.charger(d.id);
         }
         // on enlève l'écouteur pour le drag s'il n'y a pas eu de drag
         objet_carte.selections.nodes.on("mousemove", null);
@@ -301,10 +300,10 @@ var carte = (function () {
       objet_carte.selections.nodes.on("mousedown", function(d) {
         d3.event.stopPropagation();
         // on log le début du clic pour le mesurer
-        interactions.mousedown();
+        cartographie.interactions.mousedown();
         // si drag
         objet_carte.selections.nodes.on("mousemove",function(){
-          interactions.enlever_infobulle();
+          cartographie.interactions.enlever_infobulle();
           // on enlève l'écouteur pour le faire qu'un fois
           objet_carte.selections.nodes.on("mousemove", null);
         });
@@ -334,7 +333,7 @@ var carte = (function () {
 
     // au resize de la fenêtre on appelle la fonction dédiée
     d3.select(window).on("resize", objet_carte.resize);
-  }
+  };
 
   return objet_carte;
 })();

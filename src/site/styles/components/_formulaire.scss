@@ -1,0 +1,90 @@
+%formulaire {
+  width: 100%;
+}
+
+%formulaire__titre {
+  @extend %cache;
+}
+
+%formulaire__label {
+  @extend %cache;
+}
+
+%formulaire__tri {
+  display: flex;
+}
+
+%formulaire__input {
+box-sizing: border-box;
+}
+
+%formulaire__input--tri {
+  width: calc( 100% / 2 - #{ ms(-4) * 2 / 3 }  );
+  &:not(:last-of-type) {
+    margin-right: ms(-4);
+  }
+}
+
+%formulaire__input--texte_recherche {
+  @extend %formulaire__input;
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  padding: ms(-8);
+  margin-bottom: ms(-4);
+  font-size: #{map-get($typographie__tailles, 'm')};
+}
+
+%formulaire__input--theme {
+  @extend %formulaire__input;
+  @extend %formulaire__input--tri;
+}
+
+%formulaire__input--date {
+  @extend %formulaire__input;
+  @extend %formulaire__input--tri;
+}
+
+%formulaire__input--nature {
+  @extend %formulaire__input;
+  @extend %formulaire__input--tri;
+}
+
+.formulaire {
+
+  @extend %formulaire !optional;
+
+  &__titre {
+    @extend %formulaire__titre;
+  };
+
+  &__label {
+    @extend %formulaire__label;
+  };
+
+  &__tri {
+    @extend %formulaire__tri;
+  }
+
+  &__input {
+    @extend %formulaire__input;
+
+    &--texte_recherche {
+      @extend %formulaire__input--texte_recherche;
+    }
+
+    &--theme {
+      @extend %formulaire__input--theme !optional;
+    }
+
+    &--date {
+      @extend %formulaire__input--date !optional;
+    }
+
+    &--nature {
+      @extend %formulaire__input--nature !optional;
+    }
+  };
+
+}

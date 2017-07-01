@@ -1,0 +1,22 @@
+%objets-recents {
+  width: 100%;
+}
+
+%objets-recents__titre {
+  @extend %cache;
+}
+
+%objets-recents__titre--affiche {
+  @extend %titrage;
+  font-size: #{map-get($typographie__tailles, 'xl')};
+}
+
+.objets-recents {
+  @extend %objets-recents !optional;
+  &__titre {
+    @extend %objets-recents__titre !optional;
+    &--theme {
+      @extend %objets-recents__titre--affiche;
+    }
+  }
+}

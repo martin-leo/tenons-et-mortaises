@@ -1,0 +1,53 @@
+
+%volet--menu {
+  height: 100%;
+  width: $menu__largeur--desktop;
+  @include respond-to('tablette-et-mobile') {
+    height: unset;
+    max-height: $menu__hauteur--mobile; // on va travailler avec max-height pour l'animation de l'ouverture sur mobile
+    width: 100%;
+    transition: max-height 1s;
+  }
+}
+
+%volet--1 {
+  z-index: 0;
+  width: calc( 100% - #{ $volets--menu--reduit } - #{ $volets--document--reduit });
+  left: 0;
+}
+
+%volet--2 {
+  z-index: 1;
+  left: $volets--carte--reduite;
+  @include respond-to('tablette-et-mobile') {
+    z-index: 4;
+    left: 0;
+  }
+}
+
+%volet--3 {
+  z-index: 3;
+  left: calc( #{ $volets--carte--reduite } + #{ $volets--menu--reduit } );
+  width: calc( 100% - #{ $volets--menu--reduit } - #{ $volets--carte--reduite });
+  @include respond-to('tablette-et-mobile') {
+    left: 0;
+  }
+}
+
+%volet {
+  position: absolute;
+  top: 0;
+  transition: left $volets__vitesse-transition;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+%volet--contenu {
+  height: 100%;
+  @include respond-to('tablette-et-mobile') {
+    height: calc( 100% - #{$menu__hauteur--mobile} );
+    width: 100%;
+    top: $menu__hauteur--mobile;
+  }
+}

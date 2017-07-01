@@ -1,1 +1,86 @@
 // placeholders
+
+%cache {
+  // voir http://www.anysurfer.be/fr/en-pratique/sites-web/cacher-du-texte#screenreader
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+%cache_temporaire {
+  // voir http://www.anysurfer.be/fr/en-pratique/sites-web/cacher-du-texte#screenreader
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+%marge-exterieure-inferieure--moyenne {
+  margin-bottom: ms(0);
+}
+
+%titrage {
+  line-height: #{map-get($typographie__interlignages, 'titres')};
+}
+
+%zone-de-texte {
+  @extend %figurer-liens;
+  & p/*:not(:last-child)*/ {
+    margin-bottom: ms(0);
+  }
+}
+
+%texte-de-niveau-n {
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-style: italic;
+  color: rgb(127,127,127);
+
+  & a:hover {
+    color: rgb(0,0,0);
+    transition: color 1s;
+  }
+}
+
+%figurer-liens {
+  & a::after {
+    vertical-align: super;
+    content: '↩';
+    font-size: 0.5em;
+    margin-left: 0.25em;
+  }
+}
+
+%conteneur-image {
+  line-height: 0;
+}
+
+%sur-deux-colonnes {
+  width: calc( 50% - #{ ms(0) / 2 } );
+}
+
+%sur-trois-colonnes-deux-sur-tablette-une-sur-mobile {
+  width: 100%;
+  @include respond-to('tablette') {
+    width: calc( 50% - #{ ms(0) / 2 } );
+  }
+  @include respond-to('desktop') {
+    width: calc( 100% / 3 - #{ ms(0) / 3 * 2 } );
+  }
+}
+
+%sur-deux-colonnes-une-sur-mobile {
+  width: calc( 50% - #{ ms(0) / 2 } );
+  @include respond-to('mobile') {
+    width: 100%;
+  }
+}

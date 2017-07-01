@@ -18,4 +18,3 @@ var device = (function(){
   constructor();
   return device;
 })();
-console.log(device);

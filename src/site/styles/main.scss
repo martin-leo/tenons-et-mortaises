@@ -2,8 +2,9 @@
 
 // 1. Abstractions (configuration et fonctions/mixins)
 @import
-  '../../../node_modules/modularscale-sass/stylesheets/modularscale',
+  '../../../node_modules/modularscale-sass/stylesheets/_modularscale.scss',
   'abstracts/variables',
+  'abstracts/parametres',
   'abstracts/functions',
   'abstracts/mixins',
   'abstracts/placeholders';
@@ -20,11 +21,26 @@
 
 // 4. Mise en page
 @import
-  'layout/base';
+  'layout/default';
 
 // 5. Composants
 @import
-  'components/carte';
+  'components/carte',
+  'components/conteneur',
+  'components/page',
+  'components/volet',
+  'components/carte',
+  'components/menu',
+  'components/breadcrumbs',
+  'components/formulaire',
+  'components/liste-d-articles',
+  'components/article_liste',
+  'components/objet-associe',
+  'components/document',
+  'components/objets-recents',
+  'components/resultats-de-la-recherche',
+  'components/themes',
+  'components/interactions-carte-menu-document.scss';
 
 // 6. Styles spécifiques à des pages
 //@import

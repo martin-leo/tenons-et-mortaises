@@ -1,0 +1,17 @@
+%resultats-de-la-recherche {
+  margin-top: ms(4);
+}
+
+%resultats-de-la-recherche__titre {
+  @extend %titrage;
+}
+
+.resultats-de-la-recherche {
+
+  @extend %resultats-de-la-recherche !optional;
+
+  &__titre {
+    @extend %resultats-de-la-recherche__titre;
+  }
+
+}

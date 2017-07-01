@@ -1,0 +1,47 @@
+%objet-associe {
+  width: calc( ( 100% / 3 ) - #{ 2 * ms(0) / 3 });
+  margin-top: ms(2);
+  @include respond-to('tablette') {
+    width: calc( 50% - #{ ms(0) / 2 });
+  }
+  @include respond-to('mobile') {
+    width: 100%;
+  }
+}
+
+%objet-associe__lien {
+  display: flex;
+  flex-flow: column;
+}
+
+
+%objet-associe__titre {
+  @extend %titrage;
+  font-size: #{map-get($typographie__tailles, 'l')};
+  margin-top: ms(-2);
+}
+
+%objet-associe__image {
+  @extend %conteneur-image;
+  order: -1;
+  background: rgb(0,255,255);
+  & img {
+    filter: grayscale(100%) opacity(50%);
+    transition: all 1s;
+    &:hover {
+      filter: grayscale(0%) opacity(100%);
+    }
+  }
+}
+
+.objet-associe {
+  &__lien {
+    @extend %objet-associe__lien;
+  }
+  &__titre {
+    @extend %objet-associe__titre;
+  }
+  &__image {
+    @extend %objet-associe__image;
+  }
+}

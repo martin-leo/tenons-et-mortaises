@@ -12,6 +12,7 @@ module.exports = function (grunt) {
       dev: {
         src: [
           'additional_assets/js/*',
+          'src/site/scripts/globales.js',
           'src/site/scripts/abstracts/*.js',
           'src/site/scripts/classes/*.js',
           'src/site/scripts/components/*.js',
@@ -24,7 +25,11 @@ module.exports = function (grunt) {
         pour compilation avec closure-compiler
         */
         src: [
-          'src/site/scripts/*.js',
+          'src/site/scripts/globales.js',
+          'src/site/scripts/abstracts/*.js',
+          'src/site/scripts/classes/*.js',
+          'src/site/scripts/components/*.js',
+          'src/site/scripts/main.js',
         ],
         dest: 'src/tmp/s.uncompiled.js', // fichier a passer au Google Closure Compiler
       },

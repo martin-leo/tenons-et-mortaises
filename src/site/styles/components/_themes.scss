@@ -1,0 +1,14 @@
+%themes__item {
+  @extend %titrage;
+  font-size: #{map-get($typographie__tailles, 'xl')};
+  margin-bottom: ms(0);
+}
+
+.themes {
+  &__titre {
+    @extend %objets-recents__titre !optional;
+  }
+  &__item {
+    @extend %themes__item;
+  }
+}

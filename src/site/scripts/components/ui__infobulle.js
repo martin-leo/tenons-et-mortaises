@@ -1,4 +1,4 @@
-var infobulle = (function(){
+ui.infobulle = (function(){
   /*
     Infobulle permmetant l'affichage dynamique d'informations
     relatives aux nœuds de la cartographie.

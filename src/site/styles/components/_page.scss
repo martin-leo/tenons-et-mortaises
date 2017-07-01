@@ -1,0 +1,7 @@
+%page {
+  //background: aliceblue;
+}
+
+.page {
+  @extend %page !optional;
+}

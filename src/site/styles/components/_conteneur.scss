@@ -1,0 +1,14 @@
+%conteneur--marges {
+  /**/
+  padding: #{map-get($marges, 's')} #{map-get($marges, 'm')};
+}
+
+%conteneur--marges-verticales-reduites {
+  /**/
+  padding: #{map-get($marges, 'xs')} #{map-get($marges, 'm')};
+}
+
+%conteneur--marges-verticales-absentes {
+  /**/
+  padding: 0 #{map-get($marges, 'xs')};
+}

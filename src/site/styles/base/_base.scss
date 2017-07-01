@@ -3,13 +3,19 @@
 */
 
 html, body {
+  @include taille(100%);
+  overflow: hidden;
+}
+
+html {
   // taille : 100%
   @include taille(100%);
-  // pas de scroll si éléments hors du viewport
+
+  // pas de scroll horizontal si éléments hors du viewport
   overflow: hidden;
 
-  // taille de typo référence (1rem donc)
-  font-family: #{map-get($typographie__familles, 'default')};
+  // famille de caractère par défaut
+  font-family:#{map-get($typographie__familles, 'default')};
 
   // taille de typo référence (1rem donc)
   font-size: #{map-get($typographie__tailles-reference, 'default')};
@@ -26,6 +32,22 @@ html, body {
   // multiplicateur de hauteur d'x
   --x-height-multiplier:#{map-get($typographie__x-height-multiplier, 'default')};
 
+  // couleur du texte courant
+  // color: ;
+
+  // ligature pour icones
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  // rendu typo
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   // taille typo mobile
   @include respond-to('mobile') {
     font-size:  #{map-get($typographie__tailles-reference, 'mobile')};
@@ -33,17 +55,23 @@ html, body {
   }
 }
 
-// tous les titrages
-h1, h2, h3, h4, h5, h6 {
-
-  // interlignage pour les titres
-  line-height:#{map-get($typographie__interlignages, 'titres')};
+strong, b {
+  font-weight: bold;
 }
 
-// tailles de typo des titres
+em, i {
+  font-style: italic;
+}
+
+a { text-decoration: none; color: unset; }
+
 h1 { font-size: ms(6); }
 h2 { font-size: ms(5); }
 h3 { font-size: ms(4); }
 h4 { font-size: ms(3); }
 h5 { font-size: ms(2); }
 h6 { font-size: ms(1); }
+
+img {
+  max-width: 100%;
+}

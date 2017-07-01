@@ -1,0 +1,111 @@
+// paramètres menu :
+
+%menu {
+  // apparence du bloc menu
+  background: white;
+  color: rgba(0,0,0,.2);
+  overflow: hidden;
+  &.active {
+    color: rgba(0,0,0,1);
+    overflow-y: auto;
+  }
+  transition: all 1s;
+}
+
+%menu__en-tete {
+  // apparence de l'en-tête
+  // son contenu (boutons) apparaît sur mobile
+  // l'en-tête n'est donc pas visible sur les autres formats
+  display: flex;
+  justify-content: space-between;
+  @include respond-to('tablette-et-mobile') {
+    height: $menu__hauteur--mobile;
+  }
+}
+
+%menu__bouton {
+  // apparence des boutons du menu
+  // par défaut non-visibles
+  display: none;
+  border: none;
+  background: none;
+  color: rgba(0,0,0,1);
+  @include respond-to('tablette-et-mobile') {
+    // sur tablette et mobile
+    // on montre l'en-tête contenant les boutons
+    font-size: $menu__hauteur--mobile / 2;
+    margin: 0 #{ $menu__hauteur--mobile / 4 };
+    position: relative;
+    top: -3%;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+%menu__bouton--ouvrir-menu {
+  // apparence du bouton d'ouverture du menu
+}
+
+%menu__bouton--afficher-carte {
+  // apparence du bouton d'affichage de la carte
+}
+
+%menu__liste {
+  // apparence de la liste-menu
+  @include respond-to('tablette-et-mobile') {
+    // sur tablette et mobile
+    // les éléments sont centrés
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: #{map-get($marges, 'l')};
+  }
+}
+
+%menu__item {
+  // apparence des occurence du menu
+  @extend %conteneur--marges-verticales-absentes;
+  font-size: #{map-get($typographie__tailles, 'xl')};
+  &:hover {
+    background: rgba(0,0,0,1);
+    color: rgba(255,255,255,1);
+    transition: all 1s;
+  }
+}
+
+%menu__lien {
+  // apparence des lien du menu
+}
+
+.menu {
+  @extend %volet;
+  @extend %volet--2;
+  @extend %volet--menu;
+  @extend %menu;
+
+  &__en-tete {
+    @extend %menu__en-tete;
+  }
+
+  &__bouton {
+    &--ouvrir-menu {
+      @extend %menu__bouton;
+      @extend %menu__bouton--ouvrir-menu !optional;
+    }
+    &--afficher-carte {
+      @extend %menu__bouton;
+      @extend %menu__bouton--afficher-carte !optional;
+    }
+  }
+
+  &__liste {
+    @extend %menu__liste !optional;
+  }
+
+  &__item {
+    @extend %menu__item !optional;
+  }
+
+  &__lien {
+    @extend %menu__lien !optional;
+  }
+}

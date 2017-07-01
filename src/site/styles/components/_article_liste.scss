@@ -1,0 +1,91 @@
+// article listé
+
+%article-liste {
+}
+
+%article-liste--avec-iconographie {
+  @extend %article-liste !optional;
+  margin-bottom: ms(0);
+  display: flex;
+  flex-flow: column;
+}
+
+%article-liste__titre {
+  @extend %titrage;
+  font-size: #{map-get($typographie__tailles, 'm')};
+  @include respond-to('mobile') {
+    font-size: #{map-get($typographie__tailles, 'l')};
+  }
+  margin-top: ms(-2);
+}
+
+%article-liste__titre--avec-iconographie {
+  @extend %article-liste__titre ;
+  margin-bottom: ms(-8);
+}
+
+%article-liste__illustration {
+  order: -1;
+  @extend %conteneur-image;
+  background: rgb(0,255,255);
+  & img {
+    filter: grayscale(100%) opacity(50%);
+    transition: all 1s;
+    &:hover {
+      filter: grayscale(0%) opacity(100%);
+    }
+  }
+}
+
+%article-liste__champs {
+  font-size: #{map-get($typographie__tailles, 's')};
+  line-height: #{map-get($typographie__interlignages, 'compenser-m-vers-s')};
+  @include respond-to('mobile') {
+    font-size: #{map-get($typographie__tailles, 'm')};
+    line-height: #{map-get($typographie__interlignages, 'compenser-l-vers-m')};
+  }
+}
+
+%article-liste__theme {
+  @extend %article-liste__champs;
+}
+
+%article-liste__auteurs {
+  @extend %article-liste__champs;
+}
+
+%article-liste__date-de-publication {
+  @extend %article-liste__champs;
+}
+
+.article-liste {
+  @extend %article-liste !optional;
+
+  &--avec-iconographie {
+    @extend %article-liste--avec-iconographie !optional;
+
+  }
+
+  &__titre {
+    @extend %article-liste__titre;
+    &--avec-iconographie {
+      @extend %article-liste__titre--avec-iconographie;
+    }
+  }
+
+  &__illustration {
+    @extend %article-liste__illustration;
+  }
+
+  &__theme {
+    @extend %article-liste__theme !optional;
+  }
+
+  &__auteurs {
+    @extend %article-liste__auteurs !optional;
+  }
+
+  &__date-de-publication {
+    @extend %article-liste__date-de-publication !optional;
+  }
+}

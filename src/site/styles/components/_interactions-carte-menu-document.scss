@@ -1,0 +1,59 @@
+/*
+mobile, 2 cas de figure pour la carte :
+  * carte inactive (défaut)
+  * carte active
+    * le document se décale pour la révéler
+  2 cas de figure pour le menu :
+    * inactif (défaut)
+    * actif (on déroule avec max-height)
+*/
+
+@include respond-to('tablette-et-mobile') {
+
+  .carte.active ~ .document {
+    left: 100vw;
+  }
+
+  .menu.active {
+    max-height: 100vh;
+  }
+
+}
+
+/*
+desktop, 4 cas de figure :
+  * 0. carte inactive, menu inactif, document actif
+    * par défaut
+  * 1. carte active, menu inactif, document inactif
+    * menu et document décalés
+  * 2. carte active, menu actif, document inactif
+    * menu et document décalés
+  * 3. carte inactive, menu actif, document actif
+    * menu et document décalés
+*/
+
+@include respond-to('desktop') {
+
+  /* cas n°1 : carte active */
+
+  .carte.active ~ .menu {
+    left: calc( 100vw - #{ $volets--menu--reduit } - #{ $volets--document--reduit });
+  }
+
+  .carte.active ~ .document {
+    left: calc( 100vw - #{ $volets--document--reduit } );
+  }
+
+  /* cas n°2 : carte et menu actifs */
+
+  .carte.active ~ .menu.active {
+    left: calc( 100vw - ( #{ $volets--document--reduit } + #{ $menu__largeur--desktop } ) );
+  }
+
+  /* cas n°3 : menu et documents actifs */
+
+  .menu.active ~ .document.active {
+    left: calc( #{ $menu__largeur--desktop } + #{ $volets--carte--reduite });
+  }
+
+}

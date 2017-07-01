@@ -1,9 +1,10 @@
 // breakpoints
 
 $breakpoints: (
-  'desktop': (min-width: 601px),
-  'tablette-et-mobile': (max-width: 600px),
   'mobile': (max-width: 399px),
+  'tablette-et-mobile': (max-width: 768px),
+  'tablette': "(max-width: 768px) and (min-width: 400px)" ,
+  'desktop': (min-width: 769px),
 );
 
 // Typographie
@@ -11,45 +12,58 @@ $breakpoints: (
 // taille de référence
 // les différentes tailles de caractères
 // seront basées sur cette valeur
-// propriété : font-size :
 $typographie__tailles-reference: (
   'default' : 26px,
   'mobile'  : 16px,
 ) !default;
 
 // interlignage
-// propriété : line-height
+$typographie__tailles: (
+  'xs' : ms(-2),
+  's'  : ms(-1),
+  'm'  : ms( 0),
+  'l'  : ms( 1),
+  'xl' : ms( 2),
+) !default;
+
+// interlignage
 $typographie__interlignages: (
   'default' : 1.58,
   'titres'  : 1.125,
+  'compenser-m-vers-s'  : ms(0) / ms(-1) * 1.125, // histoire de garder la même ligne de base, mais il faudra compenser entre les éléments en m et en s
+  'compenser-l-vers-m'  : ms(1) / ms(0) * 1.125,
 ) !default;
 
 // interlettrage
-// propriété : letter-spacing
 $typographie__interlettrages: (
   'default' : -.003em,
-  'mobile'  : 0,
+  'nul'  : 0,
 ) !default;
 
 // multiplicateur de ligne de base
-// propriété : --baseline-multiplier
 $typographie__baseline-multiplier: (
   'default' : .179,
 ) !default;
 
 // multiplicateur de hauteur d'x
-// propriété : --x-height-multiplier
 $typographie__x-height-multiplier: (
   'default' : .35,
 ) !default;
 
 // familles typographiques
-// propriété : font-family
 $typographie__familles: (
   'default' : (Georgia, Cambria, "Times New Roman", Times, serif),
   'alternate' : (Helvetica, Arial, sans-serif)
 ) !default;
 
+// familles typographiques
+$marges: (
+  'xs' : ms(-2),
+  's'  : ms(-1),
+  'm'  : ms( 0),
+  'l'  : ms( 1),
+  'xl' : ms( 2),
+) !default;
 
 // modular scale
 // https://github.com/modularscale/modularscale-sass
@@ -59,7 +73,7 @@ $typographie__familles: (
 $ms-base: 1rem;
 $ms-ratio: $minor-third;
 
-// cartographie
+/* cartographie */
 
 // nombre de thèmes
 $cartographie__themes: (
@@ -113,10 +127,10 @@ $typographie__familles: (
 
 
 /* thèmes */
-$themes__noms: biens-communs,
-              métèquerie,
-              l-ennemi-où-est-la-domination,
-              ;
+$themes__noms:  biens-communs,
+                métèquerie,
+                l-ennemi-où-est-la-domination,
+                ;
 
 $themes__nombre: length($themes__noms);
 

@@ -1,4 +1,4 @@
-var tem_data = (function () {
+cartographie.tem_data = (function () {
   /* Chargement et traitement des données.
   Void -> Object
   Les données sont traitées de manière à obtenir deux listes : nodes et liens.

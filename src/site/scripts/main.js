@@ -1,11 +1,21 @@
+/* configuration UI */
+
+//ui.bouton_carte.initialiser();
+//ui.carte.initialiser();
+//ui.menu.initialiser();
+//ui.doc.initialiser();
+
 /* Configuration et lancement de la cartographie dès téléchargement des données */
 
-tem_data.import('/pw2/site/assets/files/data.json',[go]);
-interactions.configure(tem_data,network);
+cartographie.tem_data.import('/pw2/site/assets/files/data.json',[go]);
+cartographie.interactions.configure(cartographie.tem_data,cartographie.network);
 
 function go () {
-  tem_data.process();
-  carte.setup(tem_data);
+  cartographie.tem_data.process();
+  carte.setup(cartographie.tem_data);
   carte.selections();
   carte.evenements();
 }
+
+
+console.log(device);
