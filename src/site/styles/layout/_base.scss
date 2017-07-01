@@ -1,0 +1,108 @@
+$layout--base__menu__taille: 8rem;
+$layout--base__volet__reduction: 4rem;
+
+$layout--mobile__hauteur-menu: 4rem;
+
+.carte, .menu, .contenu {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 1s;
+}
+
+// la carte
+.carte { background: cyan; }
+.contenu { background: red; }
+.menu { background: orange; }
+
+@include respond-to('tablette-et-mobile') {
+  // mise en page mobile du layout
+
+  // tous les éléments fond la largeur du viewport
+  .carte, .contenu, .menu {
+    width: 100vw;
+  }
+  // le contenu et le menu restent fixes à gauche
+  .contenu, .menu {
+    left: 0;
+  }
+
+  // la carte et le contenu font la hauteur du viewport
+  // moins la hauteur du menu non déployé
+  // et se placent à distance du haut égale à la hauteur du menu non déployé
+  .carte, .contenu {
+    height: calc( 100vh - #{$layout--mobile__hauteur-menu} );
+    top: $layout--mobile__hauteur-menu;
+  }
+
+  // la carte est hors-viewport, sur la droite
+  .carte {
+    left: 100vh;
+    transition: left 1s;
+    z-index: 1;
+  }
+
+  // mais reviens devant lorsque activée
+  .carte.active {
+    left: 0vh;
+    transition: left 1s;
+  }
+}
+
+@include respond-to('desktop') {
+  // mise en page desktop du layout
+  // la carte
+  .carte {
+    width: calc( 100vw - #{$layout--base__menu__taille});
+  }
+
+  // le contenu
+  .contenu {
+    width: calc( 100vw - #{$layout--base__menu__taille});
+    left: $layout--base__menu__taille;
+  }
+
+  // le contenu si carte active
+  .carte.active ~ .contenu {
+    left: calc( 100vw - #{$layout--base__volet__reduction} );
+    transition: left 1s;
+  }
+
+  // le contenu si actif et si menu actif
+  .contenu.active {
+    left: $layout--base__menu__taille;
+    transition: left 1s;
+  }
+
+  // le contenu si actif et si menu actif
+  .menu.active ~ .contenu.active {
+    left: $layout--base__menu__taille + $layout--base__volet__reduction;
+    transition: left 1s;
+  }
+
+  // le menu
+  .menu {
+    width: $layout--base__menu__taille;
+    left: $layout--base__volet__reduction;
+  }
+
+  // le menu si actif
+  .menu.active {
+    left: $layout--base__volet__reduction;
+    transition: left 1s;
+  }
+
+  // le menu si carte active
+  .carte.active ~ .menu {
+    left: calc( 100vw - #{$layout--base__menu__taille} );
+    transition: left 1s;
+  }
+
+  // le menu si actif et si la carte active
+  .carte.active ~ .menu.active {
+    left: calc( 100vw - #{$layout--base__menu__taille} - #{$layout--base__volet__reduction });
+    transition: left 1s;
+  }
+
+}

@@ -3,7 +3,7 @@ var device = (function(){
   Void -> Void */
   "use strict";
   var device = {};
-  device.touch;
+  device.touch = false;
 
   function constructor(){
     /* constructeur

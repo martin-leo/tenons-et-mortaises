@@ -1,6 +1,8 @@
 // breakpoints
 
 $breakpoints: (
+  'desktop': (min-width: 601px),
+  'tablette-et-mobile': (max-width: 600px),
   'mobile': (max-width: 399px),
 );
 
@@ -56,3 +58,70 @@ $typographie__familles: (
 // sur la taille en px appliquée à html
 $ms-base: 1rem;
 $ms-ratio: $minor-third;
+
+// cartographie
+
+// nombre de thèmes
+$cartographie__themes: (
+  'nombre' : 3,
+) !default;
+
+// nodes
+$cartographie__nodes: (
+  'couleur' : white,
+  'opacite' : 1,
+) !default;
+
+// nodes racine
+$cartographie__nodes--racine: (
+  'bordure' : true,
+  'couleur' : black,
+  'epaisseur' : 10,
+) !default;
+
+// nodes thème
+$cartographie__nodes--theme: (
+  'bordure' : true,
+  'couleur' : gold,
+  'epaisseur' : 10,
+) !default;
+
+// liens
+$cartographie__liens: (
+  'opacite' : .5,
+  'couleur' : black,
+) !default;
+
+// liens de parenté
+$cartographie__liens--parente: (
+  'opacite' : .5,
+  'couleur' : black,
+) !default;
+
+// liens d'association
+$cartographie__liens: (
+  'opacite' : .5,
+  'epaisseur' : 10,
+) !default;
+
+$typographie__familles: (
+  'default' : (Georgia, Cambria, "Times New Roman", Times, serif),
+  'alternate' : (Helvetica, Arial, sans-serif)
+) !default;
+
+
+
+
+/* thèmes */
+$themes__noms: biens-communs,
+              métèquerie,
+              l-ennemi-où-est-la-domination,
+              ;
+
+$themes__nombre: length($themes__noms);
+
+$themes__couleurs: (
+  'biens-communs' : #FF0000,
+  'métèquerie' : #BF1199,
+  'l-ennemi-où-est-la-domination' : #7B2EEE,
+) !default;

@@ -137,14 +137,14 @@ var tem_data = (function () {
       }
 
       // si liens parent->child
-      if (node.enfants && node.collapsed == false) {
+      if (node.enfants && node.collapsed === false) {
         for (var i = 0; i < node.enfants.length; i++) {
           new_relation(node, node.enfants[i],'parenté');
         }
       }
 
       // parcours des enfants (si applicable)
-      if (node.enfants && node.collapsed == false) node.enfants.forEach(parcours);
+      if (node.enfants && node.collapsed === false) node.enfants.forEach(parcours);
     }
 
     tem_data.links = []; // on reset les liens

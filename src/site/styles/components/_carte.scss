@@ -1,0 +1,68 @@
+$carte__liens__couleurs: (
+  'default' : purple,
+) !default;
+
+$montrer-lien-de-parente: false;
+
+// nodes
+
+// assignation des couleurs
+@for $i from 1 through $themes__nombre {
+
+  // remplissage des nodes
+  g.#{nth($themes__noms, $i)} {
+    fill: #{map-get( $themes__couleurs, nth($themes__noms, $i) )}
+  }
+  //opacité réduite si mise en avant d'un autre thème
+  [data-highlighted=#{nth($themes__noms, $i)}] .node {
+    opacity: .2;
+  }
+
+  // opacité max si mise en avant du thème parent
+  [data-highlighted=#{nth($themes__noms, $i)}] .node.#{nth($themes__noms, $i)} {
+    opacity: 1;
+    stroke: gold;
+    stroke-width: 2;
+  }
+}
+
+[data-highlighted='réseau'] .node, [data-highlighted^="theme-"] .node {
+  opacity: .2;
+}
+
+.node.highlighted {
+  stroke: gold;
+  stroke-width: 2;
+  opacity: 1;
+}
+
+
+//liens
+
+line {
+  stroke-linecap: round;
+}
+
+@if $montrer-lien-de-parente {
+  line.parente {
+    stroke: #{map-get( $carte__liens__couleurs, 'default' )};
+    opacity: .1;
+  }
+}
+
+// liens d'association
+line.association {
+  stroke: #{map-get( $carte__liens__couleurs, 'default' )};
+  opacity: 1;
+}
+
+// lorsqu'un lien est mis en retrait (il ne fait pas partie du réseau mis en avant)
+[data-highlighted='réseau'] line {
+  opacity: .2;
+}
+
+// lorsqu'un lien est mis en avant
+line.highlighted {
+  opacity: 1;
+  stroke: gold;
+}

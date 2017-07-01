@@ -12,7 +12,10 @@ module.exports = function (grunt) {
       dev: {
         src: [
           'additional_assets/js/*',
-          'src/site/scripts/*.js',
+          'src/site/scripts/abstracts/*.js',
+          'src/site/scripts/classes/*.js',
+          'src/site/scripts/components/*.js',
+          'src/site/scripts/main.js',
         ],
         dest: 'site/templates/scripts/s.js',
       },
