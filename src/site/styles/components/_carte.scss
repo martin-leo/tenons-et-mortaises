@@ -1,11 +1,20 @@
 %carte {
-  background: black;
+  overflow: hidden;
+  background: rgb(200,200,200);
 }
+
+%carte__titre {
+  @extend %cache;
+}
+
 .carte {
   @extend %volet;
   @extend %volet--contenu;
   @extend %volet--1;
   @extend %carte;
+  &__titre {
+    @extend %carte__titre;
+  }
 }
 
 

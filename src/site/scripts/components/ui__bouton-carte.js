@@ -7,7 +7,7 @@ ui.bouton_carte = (function(){
     /* ajoute les écouteurs à l'élément HTML bouton carte :
         * clic : basculer carte
     */
-    ui.elements.bouton_carte.addEventListener('click', carte.basculer , false);
+    ui.elements.bouton_carte.addEventListener('click', ui.carte.basculer , false);
   }
 
   composant.on = function () {

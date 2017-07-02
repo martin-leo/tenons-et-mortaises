@@ -36,7 +36,7 @@ ui.doc = (function(){
     ajout_des_ecouteurs();
 
     // activé par défaut
-    composant.activer();
+    // composant.activer();
   };
 
   return composant;

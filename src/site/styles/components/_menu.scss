@@ -12,6 +12,10 @@
   transition: all 1s;
 }
 
+%menu__titre {
+  @extend %cache;
+}
+
 %menu__en-tete {
   // apparence de l'en-tête
   // son contenu (boutons) apparaît sur mobile
@@ -81,6 +85,10 @@
   @extend %volet--2;
   @extend %volet--menu;
   @extend %menu;
+
+  &__titre {
+    @extend %menu__titre;
+  }
 
   &__en-tete {
     @extend %menu__en-tete;

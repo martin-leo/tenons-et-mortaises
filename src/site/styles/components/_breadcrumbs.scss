@@ -2,6 +2,10 @@
 
 }
 
+%breadcrumbs__titre {
+  @extend %cache;
+}
+
 %breadcrumbs__item {
   display: inline-block;
   &:not(:first-of-type)::before {
@@ -15,6 +19,9 @@
 }
 
 .breadcrumbs {
+  &__titre {
+    @extend %breadcrumbs__titre;
+  }
   &__item {
     @extend %breadcrumbs__item;
   }

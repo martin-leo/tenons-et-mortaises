@@ -48,6 +48,7 @@ ui.menu = (function(){
     /* ajoute les écouteurs à l'élément HTML carte :
         * activation au survol
     */
+    console.log('ajout_des_ecouteurs', ui.elements.menu);
     ui.elements.menu.addEventListener('mouseover', composant.activer, false);
     ui.elements.menu.addEventListener('mouseleave', composant.desactiver, false);
 

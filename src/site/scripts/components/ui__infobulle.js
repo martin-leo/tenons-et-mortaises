@@ -50,11 +50,11 @@ ui.infobulle = (function(){
     /* positionne l'infobulle en regard des coordonnées en entrée
     Int, Int -> Void */
     // on applique les transformations du SVG
-    x = (x * carte.transformations.scale) + carte.transformations.translate.x;
-    y = (y * carte.transformations.scale) + carte.transformations.translate.y;
+    x = (x * cartographie.carte.transformations.scale) + cartographie.carte.transformations.translate.x;
+    y = (y * cartographie.carte.transformations.scale) + cartographie.carte.transformations.translate.y;
     // on centre en x et applique un offset en y
     x = x - bulle.offsetWidth/2;
-    y = y - bulle.offsetHeight + offset_y * carte.transformations.scale;
+    y = y - bulle.offsetHeight + offset_y * cartographie.carte.transformations.scale;
     // on applique
     bulle.style.left = x + 'px';
     bulle.style.top = y + 'px';

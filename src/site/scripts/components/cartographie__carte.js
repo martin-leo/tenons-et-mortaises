@@ -1,4 +1,4 @@
-var carte = (function () {
+cartographie.carte = (function () {
   /*
     Cartographie
     Void -> Object
@@ -83,6 +83,7 @@ var carte = (function () {
 
     //width = carte.clientWidth;
     //height = carte.clientHeight;
+
     var etalon = width > height ? height : width;
     var minimum = link_distance_minimum;
     etalon /= link_distance_diviseur;

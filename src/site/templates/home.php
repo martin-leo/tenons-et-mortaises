@@ -1,9 +1,8 @@
 <?php
-include_once("./_init.php");
-include_once("./_func.php");
+include_once("./abstracts/initialisation.php");
+include_once("./abstracts/functions.php");
 
-include_once("./view/common/v_header.php"); // header
-include_once("./controller/pages/c_home.php"); // controller
-include_once("./view/pages/v_home.php"); // view
-include_once("./view/common/v_footer.php"); // footer
+include_once("./views/common/v_header.php"); // header
+include_once("./views/pages/home.php");
+include_once("./views/common/v_footer.php"); // footer
 ?>

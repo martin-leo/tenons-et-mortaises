@@ -1,0 +1,14 @@
+%pied-de-page {
+
+}
+
+%pied-de-page__titre {
+  @extend %cache;
+}
+
+.pied-de-page {
+  @extend %pied-de-page !optional;
+  &__titre {
+    @extend %pied-de-page__titre;
+  }
+}
