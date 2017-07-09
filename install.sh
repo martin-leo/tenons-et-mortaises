@@ -64,14 +64,20 @@ mv cola.js additional_assets/js
 # structure de donnée
 mkdir site/templates/fonts
 
-# ArchivoNarrow
+# WorkSans
 
 # téléchargement
-curl -LkS 'http://omnibus-type.com/download/ArchivoNarrow-for-Web.zip' -o site/templates/fonts/ArchivoNarrow-for-Web.zip
+curl -LkS 'https://github.com/weiweihuanghuang/Work-Sans/archive/master.zip' -o site/templates/fonts/WorkSans.zip
 # unzip
-unzip site/assets/fonts/ArchivoNarrow-for-Web.zip -d site/templates/fonts/
+unzip site/templates/fonts/WorkSans.zip -d site/templates/fonts/
+# structure de fichiers
+mkdir site/templates/fonts/WorkSans
+# déplacement des fichiers
+mv site/templates/fonts/Work-Sans-master/fonts/webfonts/*/* site/templates/fonts/WorkSans
+# suppression des fichiers dézippé inutiles
+rm -rf site/templates/fonts/Work-Sans-master
 # suppression du zip d'origine
-rm site/templates/fonts/ArchivoNarrow-for-Web.zip
+rm site/templates/fonts/WorkSans.zip
 
 # Junicode
 
