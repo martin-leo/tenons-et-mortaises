@@ -130,6 +130,9 @@ $typographie__familles: (
 $themes__noms:  biens-communs,
                 métèquerie,
                 l-ennemi-où-est-la-domination,
+                enseigner,
+                l-intime-est-il-révolutionnaire,
+                sans-thème
                 ;
 
 $themes__nombre: length($themes__noms);
@@ -138,4 +141,7 @@ $themes__couleurs: (
   'biens-communs' : #FF0000,
   'métèquerie' : #BF1199,
   'l-ennemi-où-est-la-domination' : #7B2EEE,
+  'enseigner' : orangered,
+  'l-intime-est-il-révolutionnaire' : steelblue,
+  'sans-thème' : honeydew,
 ) !default;
