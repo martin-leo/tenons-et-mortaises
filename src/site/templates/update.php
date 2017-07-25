@@ -67,13 +67,13 @@
       $output->themes_secondaires[] = $theme_secondaire->id;
     }
 
-    if ($objet->children.count > 0) { // si l'objet à des enfants
+    if ($objet->children->count > 0) { // si l'objet à des enfants
       foreach ($objet->children as $satellite) {
         $output->enfants[] = new_object($satellite);
       }
     }
 
-    if ($objet->objets_associes.count > 0) { // si objets associés
+    if ($objet->objets_associes->count > 0) { // si objets associés
       foreach ($objet->objets_associes as $objet_associe) {
         $output->objets_associes[] = $objet_associe->id;
       }
