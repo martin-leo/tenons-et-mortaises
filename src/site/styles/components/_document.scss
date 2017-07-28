@@ -143,7 +143,7 @@
       }
     }
   }
-  &__objets-associes {
+  &__objets-associes, &__objets-satellites {
     @extend %document__objets-associes;
     &__titre {
       @extend %document__objets-associes__titre;
