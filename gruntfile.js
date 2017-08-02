@@ -20,6 +20,12 @@ module.exports = function (grunt) {
         ],
         dest: 'site/templates/scripts/s.js',
       },
+      php: {
+        src: [
+          'src/site/templates/classes/*.php',
+        ],
+        dest: 'site/templates/abstracts/classes.php',
+      },
       prod_pre_compilation: {
         /* on concatène les fichiers qui ne sont pas d3 etc.
         pour compilation avec closure-compiler
@@ -83,7 +89,10 @@ module.exports = function (grunt) {
     copy: {
       templates: { // copie des templates
         files: [
-          {expand: true, cwd: 'src', src: ['site/templates/**'], dest: ''},
+          { expand: true,
+            cwd: 'src',
+            src: [ 'site/templates/**', '!site/templates/classes/**' ],
+            dest: ''},
         ],
       },
     },
@@ -108,7 +117,7 @@ module.exports = function (grunt) {
       },
       script: {
         files: ['src/site/**/*'],
-        tasks: ['concat:dev', 'sass:dev', 'copy:templates', 'comments'],
+        tasks: ['concat:dev', 'concat:php', 'sass:dev', 'copy:templates', 'comments'],
       },
     },
 
@@ -122,6 +131,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-stripcomments');
 
   // registerTask
-  grunt.registerTask('default', ['concat:dev', 'sass:dev','copy:templates',  'comments', 'watch']);
-  grunt.registerTask('prod', ['concat:prod_pre_compilation', 'sass:prod', 'closure-compiler:prod', 'concat:prod_pre_compilation', 'copy:templates', 'comments']);
+  grunt.registerTask('default', ['concat:dev', 'concat:php', 'sass:dev', 'copy:templates', 'comments', 'watch']);
+  grunt.registerTask('prod', ['concat:prod_pre_compilation', 'sass:prod', 'closure-compiler:prod', 'concat:prod_pre_compilation', 'concat:php', 'copy:templates', 'comments']);
 };
