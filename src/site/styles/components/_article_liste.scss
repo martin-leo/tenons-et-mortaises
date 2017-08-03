@@ -54,7 +54,7 @@
   @extend %article-liste__champs;
 }
 
-%article-liste__date-de-publication {
+%article-liste__date {
   @extend %article-liste__champs;
 }
 
@@ -85,7 +85,7 @@
     @extend %article-liste__auteurs !optional;
   }
 
-  &__date-de-publication {
-    @extend %article-liste__date-de-publication !optional;
+  &__date {
+    @extend %article-liste__date !optional;
   }
 }
