@@ -10,8 +10,8 @@
 	</header>
 
 	<ul class="menu__liste">
-		<li class="menu__item"><a class="menu__lien" href="#">objets</a></li>
-		<li class="menu__item"><a class="menu__lien" href="#">thèmes</a></li>
+		<li class="menu__item"><a class="menu__lien" href="<?php echo $config->urls->root?>objets-recents">objets</a></li>
+		<li class="menu__item"><a class="menu__lien" href="<?php echo $config->urls->root?>themes">thèmes</a></li>
 		<li class="menu__item"><a class="menu__lien" href="#">archives</a></li>
 		<li class="menu__item"><a class="menu__lien" href="#">manifeste</a></li>
 	</ul>
