@@ -42,6 +42,16 @@ unzip FieldtypeMapMarker.zip -d site/modules
 # Suppression des fichiers temporaires
 rm FieldtypeMapMarker.zip
 
+# TextformatterVideoEmbed
+
+# Téléchargement
+curl -LkS https://github.com/ryancramerdesign/TextformatterVideoEmbed/zipball/master -o TextformatterVideoEmbed.zip
+# Décompression
+unzip TextformatterVideoEmbed.zip -d site/modules
+# Suppression des fichiers temporaires
+rm TextformatterVideoEmbed.zip
+
+
 # ==========
 # installation des plugins NPM
 npm install
