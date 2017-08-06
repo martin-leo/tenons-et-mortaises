@@ -8,11 +8,8 @@ class Theme_secondaire extends Theme {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
     $this->nom = $theme_secondaire->title;
-    $this->texte = $Markdown->text($theme_secondaire->zone_de_texte);
+    $this->texte = $theme_secondaire->zone_de_texte;
     $this->url = $theme_secondaire->httpUrl;
   }
 }

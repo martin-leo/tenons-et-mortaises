@@ -10,15 +10,12 @@ class Satellite {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
     $this->nom = $satellite->title;
     $this->url = $satellite->httpUrl;
     $this->image = $satellite->image_principale;
     $this->auteurs = new Auteurs ( $satellite->auteurs );
     $this->dates = new PW_Date( $satellite );
-    $this->origine = substr( $Markdown->text( $satellite->origine ), 3, -4);
+    $this->origine = substr( $satellite->origine, 3, -4);
   }
 
   public function __toString() {

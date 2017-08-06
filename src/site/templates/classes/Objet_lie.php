@@ -7,20 +7,18 @@ class Objet_lie {
     * url
   */
 
-  public $nom, $image, $url;
+  public $id, $nom, $url, $image, $dates;
 
   public function __construct ( $objet ) {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
+    $this->id = $objet->id;
     $this->nom = $objet->title;
     $this->url = $objet->httpUrl;
     $this->image = $objet->image_principale;
     $this->dates = new PW_Date( $objet );
-    $this->origine = substr( $Markdown->text( $objet->origine ), 3, -4);
+    //$this->origine = substr( $objet->origine , 3, -4);
   }
 
   public function __toString() {

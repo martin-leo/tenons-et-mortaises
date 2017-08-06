@@ -4,26 +4,27 @@ class Theme {
   /* Représente le thème d'un objet
     Le thème est soit l'objet ancêtre possédant un template thème le plus proche */
 
-  public $nom, $texte, $url;
+  public $theme, $nom, $texte, $url;
 
   public function __construct ( $page ) {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
-    $theme = $this->chercher_theme( $page );
+    if ( $page->template == "theme" ) {
+      $theme = $page;
+    } else {
+      $theme = $this->chercher_theme( $page );
+    }
 
     if ( $theme->id ) {
       $this->nom = $theme->title;
-      $this->texte = $Markdown->text($theme->zone_de_texte);
+      $this->texte = $theme->zone_de_texte;
       $this->url = $theme->httpUrl;
     }
   }
 
   public function chercher_theme ( $page, $max_iteration = 4 ) {
-    /* recherche itérative de l'anêtre le plus proche avec le template theme
+    /* recherche itérative de l'ancêtre le plus proche avec le template theme
     $page -> Page Object */
     $max_iteration--;
 

@@ -12,11 +12,8 @@ class Auteur {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
     $this->nom = $auteur->auteur->title;
-    $this->texte = $Markdown->text($auteur->auteur->zone_de_texte);
+    $this->texte = $auteur->auteur->zone_de_texte;
     $this->url = $auteur->auteur->httpUrl;
   }
 

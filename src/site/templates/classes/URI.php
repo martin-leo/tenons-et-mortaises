@@ -12,11 +12,8 @@ class URI {
     /* Constructeur
     Page -> Void */
 
-    // on fait le lien avec l'objet ParseDown Extra
-    global $Markdown;
-
     $this->url = $URI->URI;
-    $this->texte = $Markdown->text( $URI->zone_de_texte );
+    $this->texte = $URI->zone_de_texte;
   }
 
   public function __toString() {
