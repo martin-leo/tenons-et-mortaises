@@ -20,12 +20,13 @@ class Page_objet {
   public function __construct( $page ) {
     /*  */
 
-
     $this->titre = $page->title;
     $this->breadcrumbs = new Breadcrumbs ( $page );
-    $this->theme = new Theme( $page );
-    $this->themes_secondaires = [];
-    $this->nature = new Nature( $page );
+    if ( $page->parent->id > 1) { // pour les objets hors thème genre manifeste
+      $this->theme = new Theme( $page );
+      $this->nature = new Nature( $page );
+      $this->themes_secondaires = [];
+    }
     $this->date_de_publication = utf8_encode( strftime('le %d %B %Y', $page->date_de_publication) ) ;
     $this->origine = substr( $page->origine , 3, -5); // en markdown, on vire les <p></p>
     $this->auteurs = new Auteurs( $page->auteurs ) ;
@@ -41,20 +42,24 @@ class Page_objet {
       array_push($this->URIs, new URI ( $uri ) );
     }
 
-    // tous les thèmes secondaires associés
-    foreach ( $page->themes_secondaires as $theme) {
-      //array_push($this->auteurs, $auteur->auteur->title);
-      array_push($this->themes_secondaires, new Theme_secondaire( $theme ) );
+    if ( $page->themes_secondaires ) {
+      // tous les thèmes secondaires associés
+      foreach ( $page->themes_secondaires as $theme) {
+        //array_push($this->auteurs, $auteur->auteur->title);
+        array_push( $this->themes_secondaires, new Theme_secondaire( $theme ) );
+      }
     }
 
-    // tous les satellites
-    foreach ( $page->children() as $satellite) {
-      //array_push($this->auteurs, $auteur->auteur->title);
-      array_push($this->satellites, new Satellite( $satellite ) );
+    if ( $page->children() ) {
+      // tous les satellites
+      foreach ( $page->children() as $satellite ) {
+        //array_push($this->auteurs, $auteur->auteur->title);
+        array_push( $this->satellites, new Satellite( $satellite ) );
+      }
     }
 
     // tous les objets associés
-    foreach ( $page->objets_associes as $objet_associe) {
+    foreach ( $page->objets_associes as $objet_associe ) {
       //array_push($this->auteurs, $auteur->auteur->title);
       array_push($this->objets_associes, new Objet_lie( $objet_associe ) );
     }

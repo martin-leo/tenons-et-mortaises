@@ -9,7 +9,6 @@ class Theme {
   public function __construct ( $page ) {
     /* Constructeur
     Page -> Void */
-
     if ( $page->template == "theme" ) {
       $theme = $page;
     } else {
