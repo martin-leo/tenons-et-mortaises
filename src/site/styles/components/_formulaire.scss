@@ -28,8 +28,8 @@ box-sizing: border-box;
 %formulaire__input--texte_recherche {
   @extend %formulaire__input;
   width: 100%;
-  background: black;
-  color: white;
+  background: #{map-get($couleurs, 'todo--fond')};
+  color: #{map-get($couleurs, 'todo')};;
   border: none;
   padding: ms(-8);
   margin-bottom: ms(-4);

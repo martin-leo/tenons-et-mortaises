@@ -50,8 +50,8 @@ html {
 
   // taille typo mobile
   @include respond-to('mobile') {
-    font-size:  #{map-get($typographie__tailles-reference, 'mobile')};
-    letter-spacing:#{map-get($typographie__interlettrages, 'mobile')};
+    font-size: #{map-get($typographie__tailles-reference, 'mobile')};
+    letter-spacing: #{map-get($typographie__interlettrages, 'mobile')};
   }
 }
 

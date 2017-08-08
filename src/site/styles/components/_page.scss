@@ -1,5 +1,5 @@
 %page {
-  //background: aliceblue;
+  //background: #{map-get($couleurs, 'todo--fond')};
 }
 
 .page {

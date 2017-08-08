@@ -3,12 +3,16 @@
 %menu {
   // apparence du bloc menu
   @extend %typographie--alternate;
-  background: white;
-  color: rgba(0,0,0,.2);
+  background: mix(
+                map-get($couleurs, 'principale'),
+                darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
+                5%
+                );
+  color: rgba(map-get($couleurs, 'noir'), .2);
   overflow: hidden;
   &.active {
-    color: rgba(0,0,0,1);
-    overflow-y: auto;
+    color: rgba(map-get($couleurs, 'noir'), 1);
+    // overflow-y: auto; // barre de scroll, désactivé vu qu'il y a pas trop d'éléments et que c'est vilain car ça apparaît lors de l'ouverture pour disparaître après, todo : gérer ça mieux !
   }
   transition: all 1s;
 }
@@ -34,7 +38,7 @@
   display: none;
   border: none;
   background: none;
-  color: rgba(0,0,0,1);
+  color: #{map-get($couleurs, 'noir')};
   @include respond-to('tablette-et-mobile') {
     // sur tablette et mobile
     // on montre l'en-tête contenant les boutons
@@ -70,9 +74,14 @@
   // apparence des occurence du menu
   @extend %conteneur--marges-verticales-absentes;
   font-size: #{map-get($typographie__tailles, 'xl')};
+  background: rgba( map-get($couleurs, 'principale') ,0);
   &:hover {
-    background: rgba(0,0,0,1);
-    color: rgba(255,255,255,1);
+    background: rgba( map-get($couleurs, 'principale') ,1);
+    color: mix(
+                map-get($couleurs, 'principale'),
+                darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
+                5%
+                );
     transition: all 1s;
   }
 }

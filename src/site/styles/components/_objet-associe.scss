@@ -24,7 +24,7 @@
 %objet-associe__image {
   @extend %conteneur-image;
   order: -1;
-  background: rgb(0,255,255);
+  background: #{map-get($couleurs, 'todo--fond')};
   & img {
     filter: grayscale(100%) opacity(50%);
     transition: all 1s;

@@ -1,5 +1,5 @@
 %document {
-  background: rgba(255,255,255,1);
+  background: #{map-get($couleurs, 'blanc')}; // rgba(255,255,255,1);
   @extend %conteneur--marges;
 
   @include respond-to('desktop') {

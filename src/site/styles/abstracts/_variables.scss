@@ -126,6 +126,7 @@ $cartographie__liens: (
 
 
 /* thèmes */
+
 $themes__noms:  biens-communs,
                 métèquerie,
                 l-ennemi-où-est-la-domination,
@@ -143,4 +144,23 @@ $themes__couleurs: (
   'enseigner' : orangered,
   'l-intime-est-il-révolutionnaire' : steelblue,
   'sans-thème' : honeydew,
+) !default;
+
+
+/* couleurs */
+
+$couleurs--luminosite : 60;
+$couleurs--saturation : 100;
+$couleurs--seuil--pourcentage: 2%; // va piloter l'assombrissement de la couleur de fond du menu/carte
+
+$couleurs: (
+  'blanc' :           hsl(000, 000, 100),
+  'noir' :            hsl(000, 000, 000),
+  'principale' :      hsl(000, $couleurs--saturation, $couleurs--luminosite),
+  'secondaire' :      hsl(120, $couleurs--saturation, $couleurs--luminosite),
+  'complémentaire' :  hsl(240, $couleurs--saturation, $couleurs--luminosite),
+
+  // couleur à déterminer
+  'todo' :            hsl(300, $couleurs--saturation, $couleurs--luminosite),
+  'todo--fond' :            hsl(300, $couleurs--saturation, $couleurs--luminosite/2),
 ) !default;

@@ -27,13 +27,13 @@
   padding: ms(0);
   margin: ms(4) 0 ms(0) 0;
   font-size: #{map-get($typographie__tailles, 'm')};
-  background: black;
-  color: white;
+  background: #{map-get($couleurs, 'secondaire')};
+  color: #{map-get($couleurs, 'blanc')};
   border: none;
   transition: background 1s;
   &:active {
-    background: white;
-    color: black;
+    background: #{map-get($couleurs, 'noir')};
+    color: #{map-get($couleurs, 'blanc')};
     transition: background 0s;
   }
 }
