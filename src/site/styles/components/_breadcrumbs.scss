@@ -1,5 +1,5 @@
 %breadcrumbs {
-
+  @extend %typographie--alternate;
 }
 
 %breadcrumbs__titre {
@@ -9,7 +9,7 @@
 %breadcrumbs__item {
   display: inline-block;
   &:not(:first-of-type)::before {
-    content: '☞';
+    content: '→';
     margin: 0 #{ ms(-2) / 2 };
   }
 }

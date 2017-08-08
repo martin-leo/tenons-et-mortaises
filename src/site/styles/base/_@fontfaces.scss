@@ -2,6 +2,173 @@
   déclarations @fontface
 */
 
-/* work sans */
+/* work sans
 
-/* junicode */
+100 : thin
+200 : extralight
+300 : light
+400/normal : regular
+500 : medium
+600 : semibold
+700/bold : bold
+800 : extrabold
+900 : black
+
+*/
+
+// 100 : thin
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-Thin.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-Thin.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-Thin.woff2') format('woff2'),
+        ;
+  font-weight: 100;
+  font-style: normal;
+}
+
+// 200 : extralight
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-ExtraLight.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-ExtraLight.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-ExtraLight.woff2') format('woff2'),
+        ;
+  font-weight: 200;
+  font-style: normal;
+}
+
+// 300 : light
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-ExtraLight.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-ExtraLight.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-ExtraLight.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// 400/normal : regular
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-Regular.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-Regular.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-Regular.woff2') format('woff2'),
+        ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// 500 : medium
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-Medium.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-Medium.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-Medium.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// 600 : semibold
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-SemiBold.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-SemiBold.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-SemiBold.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// 700/bold : bold
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-Bold.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-Bold.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-Bold.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// 800 : extrabold
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-ExtraBold.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-ExtraBold.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-ExtraBold.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// 900 : black
+
+@font-face {
+  font-family: 'Work Sans';
+  src:  url('../fonts/WorkSans/WorkSans-Black.ttf') format('truetype'),
+        url('../fonts/WorkSans/WorkSans-Black.woff') format('woff'),
+        url('../fonts/WorkSans/WorkSans-Black.woff2') format('woff2'),
+        ;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* junicode
+
+normal
+normal italic
+bold
+bold italic
+
+*/
+
+// normal
+
+@font-face {
+  font-family: 'Junicode';
+  src:  url('../fonts/Junicode/Junicode.woff') format('woff'),
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// normal italic
+
+@font-face {
+  font-family: 'Junicode';
+  src:  url('../fonts/Junicode/Junicode-Italic.woff') format('woff'),
+  ;
+  font-weight: normal;
+  font-style: italic;
+}
+
+// bold
+
+@font-face {
+  font-family: 'Junicode';
+  src:  url('../fonts/Junicode/Junicode-Bold.woff') format('woff'),
+  ;
+  font-weight: bold;
+  font-style: normal;
+}
+
+// bold italic
+
+@font-face {
+  font-family: 'Junicode';
+  src:  url('../fonts/Junicode/Junicode-BoldItalic.woff') format('woff'),
+  ;
+  font-weight: bold;
+  font-style: italic;
+}

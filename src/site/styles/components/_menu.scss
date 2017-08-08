@@ -2,6 +2,7 @@
 
 %menu {
   // apparence du bloc menu
+  @extend %typographie--alternate;
   background: white;
   color: rgba(0,0,0,.2);
   overflow: hidden;

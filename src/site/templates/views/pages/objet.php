@@ -42,7 +42,7 @@
 	<?php if ( sizeof( $page->objet->satellites ) > 0 ) { ?>
 	<nav class="document__objets-satellites">
 
-		<h2 class="document__objets-satellites">satellites</h2>
+		<h2 class="document__objets-satellites__titre">satellites</h2>
 
 		<ul class="liste-d-articles--avec-iconographie">
 			<?php foreach ( $page->objet->satellites as $satellite) { echo $satellite; } ?>

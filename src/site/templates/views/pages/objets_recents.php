@@ -32,7 +32,7 @@
 
 				</ul>
 
-				<button class="liste-d-articles__charger-plus">☟ afficher davantages de résultat ☟</button>
+				<button class="liste-d-articles__charger-plus">afficher davantages de résultat</button>
 
 			</nav>
 

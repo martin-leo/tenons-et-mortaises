@@ -52,8 +52,14 @@ $typographie__x-height-multiplier: (
 
 // familles typographiques
 $typographie__familles: (
-  'default' : (Georgia, Cambria, "Times New Roman", Times, serif),
-  'alternate' : (Helvetica, Arial, sans-serif)
+  'default' : ('Junicode, serif'),
+  'alternate' : ('Work Sans, sans-serif'),
+) !default;
+
+// familles typographiques
+$typographie__graisse-par-defaut: (
+  'default' : 300, // medium
+  'alternate' : 500, //normal
 ) !default;
 
 // familles typographiques
@@ -117,13 +123,6 @@ $cartographie__liens: (
   'opacite' : .5,
   'epaisseur' : 10,
 ) !default;
-
-$typographie__familles: (
-  'default' : (Georgia, Cambria, "Times New Roman", Times, serif),
-  'alternate' : (Helvetica, Arial, sans-serif)
-) !default;
-
-
 
 
 /* thèmes */

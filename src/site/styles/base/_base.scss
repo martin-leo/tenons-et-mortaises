@@ -14,8 +14,8 @@ html {
   // pas de scroll horizontal si éléments hors du viewport
   overflow: hidden;
 
-  // famille de caractère par défaut
-  font-family:#{map-get($typographie__familles, 'default')};
+  // famille et graisse de caractère par défaut
+  @extend %typographie--default;
 
   // taille de typo référence (1rem donc)
   font-size: #{map-get($typographie__tailles-reference, 'default')};

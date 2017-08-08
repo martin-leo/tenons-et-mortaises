@@ -1,0 +1,11 @@
+[rel="footnote"] {
+  /* on met les numéros en exposant pour les renvois en bas de page */
+  vertical-align:super;
+  font-size: .5em;
+
+  // on reset le positionnement du ::after pour éviter la redondance
+  &:after {
+    font-size: 1em !important; // pas bien !
+    vertical-align: baseline !important; // pas bien !
+  }
+}
