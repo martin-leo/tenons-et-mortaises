@@ -1,4 +1,6 @@
 <?php
+  include_once("./abstracts/initialisation.php");
+  include_once("./abstracts/classes.php");
   /*  Script de mise à jour de la représentation JSON de la BDD
       Le JSON issu vise à l'affichage sur la carte pilotée par d3.js
       Les données représentées sont partielles :
@@ -42,19 +44,14 @@
   function new_object($objet) {
     /* Crée et retourne un nœud objet avec ses différentes propriétés.
     Page Object -> Object */
+
+    $date = new PW_Date ( $objet );
+
     $output = new stdClass;
     $output->id = $objet->id;
     $output->url = $objet->url;
     $output->titre = $objet->title;
-    $output->date_de_publication_tem = $objet->date_de_publication_tem;
-
-    if ($objet->date_de_debut) {
-      $output->date_de_debut = $objet->date_de_debut;
-    }
-
-    if ($objet->date_de_fin) {
-      $output->date_de_fin = $objet->date_de_fin;
-    }
+    $output->date = "$date";
 
     $output->theme_principal = $objet->parent->id;
 
