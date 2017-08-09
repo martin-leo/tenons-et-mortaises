@@ -1,5 +1,9 @@
 @charset 'UTF-8';
 
+// 0. Reset
+@import
+  'vendor/reset';
+
 // 1. Abstractions (configuration et fonctions/mixins)
 @import
   '../../../node_modules/modularscale-sass/stylesheets/_modularscale.scss',
@@ -10,8 +14,8 @@
   'abstracts/placeholders';
 
 // 2. Vendors
-@import
-  'vendor/reset';
+// @import
+//  'vendor/reset';
 
 // 3. Base
 @import
