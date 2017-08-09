@@ -8,6 +8,22 @@
   padding: #{map-get($marges, 'xs')} #{map-get($marges, 'm')};
 }
 
+%conteneur--marges-verticales-reduites-correction-optique-pour-marge-inferieure {
+  /**/
+  padding: #{map-get($marges, 'xs')} #{map-get($marges, 'm')} #{ map-get($marges, 'xs') * ( 1 + 1 / 3 ) } #{map-get($marges, 'm')};
+}
+
+
+%conteneur--marge-superieure-reduite {
+  /**/
+  padding: #{map-get($marges, 'xs')} #{map-get($marges, 'm')} #{map-get($marges, 'm')} #{map-get($marges, 'm')};
+}
+
+%conteneur--marge-superieure-tres-reduite-et-marge-inferieure-reduite {
+  /**/
+  padding: #{map-get($marges, 'xs')} #{map-get($marges, 'l')} #{map-get($marges, 'm')} #{map-get($marges, 'l')};
+}
+
 %conteneur--marges-verticales-absentes {
   /**/
   padding: 0 #{map-get($marges, 'xs')};

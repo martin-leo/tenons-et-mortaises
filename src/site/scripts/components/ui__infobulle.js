@@ -6,70 +6,88 @@ ui.infobulle = (function(){
   "use strict";
 
   // objet infobulle retourné par la fonction anonyme
-  var infobulle = {};
+  var composant = {};
   // l'infobulle injectée dans le DOM
-  var bulle;
+  var infobulle = {};
   // offset vertical de l'infobulle en pixels
   var offset_y = -10;
-  // contenu lorsque vide
-  var message_vide = '<h2>infobulle vide</h2><p>Pas de contenu survolé actuellement</p>';
 
   // constructeur appelé en fin de fonction
   var constructeur = function () {
     /* créé l'élément infobulle et l'insère dans le DOM
     Void -> Void */
-    var a = document.createElement("section");
-    a.setAttribute('id', 'infobulle');
-    a.setAttribute('hidden', true);
-    a.style.position = 'absolute';
-    a.style.display = 'none';
-    a.innerHTML = message_vide;
-    bulle = document.body.appendChild(a);
+    infobulle.element = document.createElement("section");
+    infobulle.titre = document.createElement("h2");
+    infobulle.texte = document.createElement("p");
+
+    infobulle.titre.classList.add('infobulle__titre');
+    infobulle.texte.classList.add('infobulle__texte');
+
+    infobulle.element.setAttribute('id', 'infobulle');
+    infobulle.element.classList.add('infobulle');
+    infobulle.element.setAttribute('hidden', true);
+    infobulle.element.style.position = 'absolute';
+    infobulle.element.style.display = 'none';
+
+    infobulle.element.appendChild( infobulle.titre );
+    infobulle.element.appendChild( infobulle.texte );
+    document.body.appendChild( infobulle.element );
+
+    composant.mise_a_zero();
   };
 
-  infobulle.afficher = function () {
+  composant.afficher = function () {
     /* affiche l'infobulle
     Void -> Void */
-    bulle.removeAttribute('hidden');
-    bulle.style.display = 'block';
+    infobulle.element.removeAttribute('hidden');
+    infobulle.element.style.display = 'block';
   };
 
-  infobulle.cacher = function () {
+  composant.cacher = function () {
     /* cache l'infobulle
     Void -> Void */
-    bulle.style.display = 'none';
-    bulle.setAttribute('hidden', true);
+    infobulle.element.style.display = 'none';
+    infobulle.element.setAttribute('hidden', true);
   };
 
-  infobulle.mise_a_zero = function () {
+  composant.mise_a_zero = function () {
     /* Met l'info-bulle à zéro */
-    bulle.innerHTML = message_vide;
+    infobulle.titre.innerHTML = "infobulle vide";
+    infobulle.texte.innerHTML = "Pas de contenu survolé actuellement";
   };
 
-  infobulle.positionner = function (x, y) {
+  composant.positionner = function (x, y) {
     /* positionne l'infobulle en regard des coordonnées en entrée
     Int, Int -> Void */
     // on applique les transformations du SVG
     x = (x * cartographie.carte.transformations.scale) + cartographie.carte.transformations.translate.x;
     y = (y * cartographie.carte.transformations.scale) + cartographie.carte.transformations.translate.y;
     // on centre en x et applique un offset en y
-    x = x - bulle.offsetWidth/2;
-    y = y - bulle.offsetHeight + offset_y * cartographie.carte.transformations.scale;
+    x = x - infobulle.element.offsetWidth/2;
+    y = y - infobulle.element.offsetHeight + offset_y * cartographie.carte.transformations.scale;
     // on applique
-    bulle.style.left = x + 'px';
-    bulle.style.top = y + 'px';
+    infobulle.element.style.left = x + 'px';
+    infobulle.element.style.top = y + 'px';
   };
 
-  infobulle.charger = function (node) {
+  composant.charger = function (node) {
     /* Modification du contenu de l'info-bulle
     String -> Void */
-    var contenu = '<h1>' + node.titre +'</h1><p>publié le 02/07/16</p>';
-    bulle.innerHTML = contenu;
+    infobulle.titre.innerHTML = node.titre;
+    if ( node.date ) {
+      infobulle.texte.classList.add( 'infobulle__texte' );
+      infobulle.texte.classList.remove( 'infobulle__texte--vide' );
+      infobulle.texte.innerHTML = node.date;
+    } else {
+      infobulle.texte.classList.add( 'infobulle__texte--vide' );
+      infobulle.texte.classList.remove( 'infobulle__texte' );
+      infobulle.texte.innerHTML = "pas de date associée";
+    }
   };
 
   // on appelle le constructeur
   constructeur();
 
   // on retourne l'objet
-  return infobulle;
+  return composant;
 })();

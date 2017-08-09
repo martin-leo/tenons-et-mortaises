@@ -11,22 +11,22 @@
 }
 
 %volet--1 {
-  z-index: 0;
+  z-index: $z-index__volets--0;
   width: calc( 100% - #{ $volets--menu--reduit } - #{ $volets--document--reduit });
   left: 0;
 }
 
 %volet--2 {
-  z-index: 1;
+  z-index: $z-index__volets--1;
   left: $volets--carte--reduite;
   @include respond-to('tablette-et-mobile') {
-    z-index: 4;
+    z-index: $z-index__volets--3;
     left: 0;
   }
 }
 
 %volet--3 {
-  z-index: 3;
+  z-index: $z-index__volets--2;
   left: calc( #{ $volets--carte--reduite } + #{ $volets--menu--reduit } );
   width: calc( 100% - #{ $volets--menu--reduit } - #{ $volets--carte--reduite });
   @include respond-to('tablette-et-mobile') {

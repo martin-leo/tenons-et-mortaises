@@ -17,13 +17,15 @@ $typographie__tailles-reference: (
   'mobile'  : 16px,
 ) !default;
 
-// interlignage
+// tailles type
 $typographie__tailles: (
+  'xxs' : ms(-3),
   'xs' : ms(-2),
   's'  : ms(-1),
   'm'  : ms( 0),
   'l'  : ms( 1),
   'xl' : ms( 2),
+  'xxl' : ms( 2),
 ) !default;
 
 // interlignage
@@ -164,3 +166,12 @@ $couleurs: (
   'todo' :            hsl(300, $couleurs--saturation, $couleurs--luminosite),
   'todo--fond' :            hsl(300, $couleurs--saturation, $couleurs--luminosite/2),
 ) !default;
+
+
+// z-index
+
+$z-index__volets--0: 0;
+$z-index__volets--1: 1;
+$z-index__volets--2: 3;
+$z-index__volets--3: 4;
+$z-index__infobulle: 9;

@@ -1,0 +1,36 @@
+%infobulle {
+  background: rgba( map-get($couleurs, 'blanc'), .7);
+  @extend %conteneur--marges-verticales-reduites-correction-optique-pour-marge-inferieure;
+  z-index: $z-index__infobulle;
+  max-width: 100vw;
+}
+
+%infobulle__titre {
+  @extend %typographie--alternate;
+  font-size: #{map-get($typographie__tailles, 'm')};
+}
+
+%infobulle__texte {
+  font-size: #{map-get($typographie__tailles, 's')};
+}
+
+%infobulle__texte--vide {
+  @extend %cache;
+}
+
+.infobulle {
+
+  @extend %infobulle !optional;
+
+  &__titre {
+    @extend %infobulle__titre !optional;
+  }
+
+  &__texte {
+    @extend %infobulle__texte !optional;
+    &--vide {
+      @extend %infobulle__texte--vide !optional;
+    }
+  }
+
+}
