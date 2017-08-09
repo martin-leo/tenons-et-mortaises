@@ -253,19 +253,26 @@ cartographie.carte = (function () {
           - clic sur un élément avec un tagname circle : on ne fait rien, la gestion de l'infobulle dans ce cas est gérée par d3
         */
         if ( e.target.tagName !== 'circle' ) {
-          // clic par sur un node
+          // clic pas sur un node
           cartographie.interactions.enlever_infobulle();
         }
       }, false);
       /* 2. Clic sur un node */
       objet_carte.selections.nodes.on("mousedown", function(d) {
-        /* Lors d'un tap sur un node on affiche l'infobulle correspondante */
-        cartographie.interactions.afficher_infobulle(d);
+        /* Lors d'un tap sur un node soit :
+          mobile/écran tactile : on affiche l'infobulle correspondante
+          autre : on va à l'article  */
+
+          if ( device.touch ) {
+            cartographie.interactions.afficher_infobulle(d);
+          }
+
       });
       /* 3. Clic sur l'infobulle */
-      document.getElementById('infobulle').addEventListener('mouseup', function(e) {
+      // résolu avec un lien
+      /*document.getElementById('infobulle').addEventListener('mouseup', function(e) {
         console.log('clic sur infobulle, chargement de contenu à implémenter');
-      }, false);
+      }, false);*/
     } else {
       /* 3 cas de figure en cas de device non tactile :
         1. Survol d'un node = affichage d'une infobulle + mise en avant du réseau associé
@@ -290,7 +297,10 @@ cartographie.carte = (function () {
         // pas de d3.event.stopPropagation(); ici ! Sinon bug !
         // 1. clic court = chargement de contenu
         if ( cartographie.interactions.clic() ) {
-          ui.doc.charger(d.id);
+          // on va à la page demandée
+          console.log( document.location.origin + d.url );
+          location.assign( document.location.origin + d.url );
+          // ui.doc.charger(d.id); // chargement dynamique dans la page, abandonné pour le moment
         }
         // on enlève l'écouteur pour le drag s'il n'y a pas eu de drag
         objet_carte.selections.nodes.on("mousemove", null);

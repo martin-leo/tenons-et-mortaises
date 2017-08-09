@@ -70,6 +70,13 @@ mv d3.js additional_assets/js
 mv cola.js additional_assets/js
 
 # ==========
+# installation de cookie.js
+# téléchargement
+# curl -LkS 'https://raw.githubusercontent.com/madmurphy/cookies.js/master/cookies.js' -o cookies.js
+# déplacement des fichiers
+# mv cookies.js additional_assets/js
+
+# ==========
 # installation des typographies nécessaires
 # structure de donnée
 mkdir site/templates/fonts

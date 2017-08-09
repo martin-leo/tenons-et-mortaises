@@ -17,10 +17,12 @@ ui.infobulle = (function(){
     /* créé l'élément infobulle et l'insère dans le DOM
     Void -> Void */
     infobulle.element = document.createElement("section");
+    infobulle.lien = document.createElement("a");
     infobulle.titre = document.createElement("h2");
     infobulle.texte = document.createElement("p");
 
     infobulle.titre.classList.add('infobulle__titre');
+    infobulle.lien.classList.add('infobulle__lien');
     infobulle.texte.classList.add('infobulle__texte');
 
     infobulle.element.setAttribute('id', 'infobulle');
@@ -29,7 +31,8 @@ ui.infobulle = (function(){
     infobulle.element.style.position = 'absolute';
     infobulle.element.style.display = 'none';
 
-    infobulle.element.appendChild( infobulle.titre );
+    infobulle.lien.appendChild( infobulle.titre );
+    infobulle.element.appendChild( infobulle.lien );
     infobulle.element.appendChild( infobulle.texte );
     document.body.appendChild( infobulle.element );
 
@@ -53,6 +56,7 @@ ui.infobulle = (function(){
   composant.mise_a_zero = function () {
     /* Met l'info-bulle à zéro */
     infobulle.titre.innerHTML = "infobulle vide";
+    infobulle.lien.removeAttribute('href');
     infobulle.texte.innerHTML = "Pas de contenu survolé actuellement";
   };
 
@@ -73,7 +77,9 @@ ui.infobulle = (function(){
   composant.charger = function (node) {
     /* Modification du contenu de l'info-bulle
     String -> Void */
+
     infobulle.titre.innerHTML = node.titre;
+
     if ( node.date ) {
       infobulle.texte.classList.add( 'infobulle__texte' );
       infobulle.texte.classList.remove( 'infobulle__texte--vide' );
@@ -83,6 +89,11 @@ ui.infobulle = (function(){
       infobulle.texte.classList.remove( 'infobulle__texte' );
       infobulle.texte.innerHTML = "pas de date associée";
     }
+
+    if ( node.url ) {
+      infobulle.lien.setAttribute( 'href', node.url );
+    }
+
   };
 
   // on appelle le constructeur

@@ -19,6 +19,7 @@ ui.doc = (function(){
   };
 
   composant.charger = function ( id ) {
+    /* charge le contenu d'une autre page dans la page actuelle */
     console.log('demande de chargement de l\'objet ', id);
     //ui.infobulle.cacher();
     //layout.activer_contenu();
