@@ -9,10 +9,9 @@ class Nature {
 
   public function __construct( $page ) {
     /* Constructeur
-    Page -> Void */
-
+    Page -> Void */=
     // si la page à un élément nature
-    if ( $page->nature->title ) {
+    if ( isset( $page->nature->title ) ) {
       $this->nom = $page->nature->title;
       $this->url = $page->nature->httpUrl;
     }
