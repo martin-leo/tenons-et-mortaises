@@ -9,10 +9,11 @@
   }
 
   @include respond-to('tablette-et-mobile') {
+    // si le menu est de la même couleur que le document :
     // on enlève la marge du haut
     // sinon le blanc du menu + marge
     // ça fait trop
-    padding-top: 0;
+    // padding-top: 0;
   }
 
   & iframe {

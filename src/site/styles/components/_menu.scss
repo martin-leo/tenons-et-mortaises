@@ -3,6 +3,11 @@
 %menu {
   // apparence du bloc menu
   @extend %typographie--alternate;
+
+  // à noter : si le menu n'est pas de la même couleur que le document
+  // nécéssité de décommenter la ligne media-query mobile et tablette
+  // padding-top: 0;
+  // du fichier _document.scss
   background: mix(
                 map-get($couleurs, 'principale'),
                 darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
