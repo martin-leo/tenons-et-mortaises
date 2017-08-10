@@ -2,6 +2,8 @@ ui.carte = (function(){
   /* composant carte */
   var composant = {};
 
+  var chargement = document.getElementById( "carte__chargement" );
+
   // composant actif ?
   composant.actif = false;
 
@@ -30,6 +32,30 @@ ui.carte = (function(){
     }
 
   };
+
+  composant.etat = function ( etat ) {
+    /* permet de gérer le texte de chargement : modifie le contenu ainsi que les classes pour en modifier l'aspect.
+    String -> Void */
+    switch ( etat ) {
+      case "chargement":
+        chargement.innerHTML = '<p>chargement</p>';
+        chargement.classList.add( 'carte__chargement--chargement' );
+        chargement.classList.remove( 'carte__chargement' );
+        break;
+      case "chargé":
+        chargement.classList.add( 'carte__chargement--charge' );
+        chargement.innerHTML = '<p>carte chargée</p>';
+        chargement.classList.remove( 'carte__chargement--chargement' );
+        break;
+      case "erreur":
+        chargement.innerHTML = '<p>erreur lors du chargement de la page</p>';
+        chargement.classList.add( 'carte__chargement--erreur' );
+        chargement.classList.remove( 'carte__chargement--chargement' );
+        break;
+      default:
+        console.warn( 'erreur : etat inconnu' );
+    }
+  }
 
   function ajout_des_ecouteurs () {
     /* ajoute les écouteurs à l'élément HTML carte :

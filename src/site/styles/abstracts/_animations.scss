@@ -1,0 +1,17 @@
+@keyframes cycle-opacite {
+  from {
+    opacity: .2;
+  }
+
+  to {
+    opacity: .8;
+  }
+}
+
+%animations--cycle-opacite {
+  animation-duration: 2s;
+  animation-name: cycle-opacite;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+}

@@ -38,6 +38,9 @@ cartographie.tem_data = (function () {
     /* Charge le JSON contenu à $chemin dans tem_data.data (qui est une référence à un objet, avant d'exécuter les callbacks fournis).
     String, Object, Function List -> Void */
 
+    // on prend en compte sur la carte le début du chargement
+    ui.carte.etat( 'chargement' );
+
     function execute(fn) { fn(); } // permet d'exécuter une suite de callbacks
 
     // on reset cette liste car en cas de réimport,
@@ -50,11 +53,16 @@ cartographie.tem_data = (function () {
       if (erreur) {
         console.error('Erreur lors du chargement des données depuis ' + chemin + '.');
         console.log('erreur renvoyée :', erreur);
+        // on signale l'erreur sur la carte
+        ui.carte.etat( 'erreur' );
       } else {
         //stockage_json = json;
         tem_data.data = json;
         //parcours_dfs_initial_nodes();
         callbacks.forEach(execute);
+
+        // on prend en compte sur la carte le chargement
+        ui.carte.etat( 'chargé' );
       }
     });
   };

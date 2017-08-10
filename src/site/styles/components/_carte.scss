@@ -5,10 +5,38 @@
                 darken( map-get($couleurs, 'blanc'), 2 * $couleurs--seuil--pourcentage ),
                 10%
                 );
+  position: relative; // pour carte__chargement
 }
 
 %carte__titre {
   @extend %cache;
+}
+
+%carte__chargement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+%carte__chargement--chargement {
+  @extend %carte__chargement;
+  @extend %animations--cycle-opacite;
+}
+
+%carte__chargement--charge {
+  @extend %carte__chargement;
+  display: none;
+}
+
+%carte__chargement--erreur {
+  @extend %carte__chargement;
 }
 
 .carte {
@@ -18,6 +46,18 @@
   @extend %carte;
   &__titre {
     @extend %carte__titre;
+  }
+  &__chargement {
+    @extend %carte__chargement;
+    &--chargement {
+      @extend %carte__chargement--chargement;
+    }
+    &--charge {
+      @extend %carte__chargement--charge;
+    }
+    &--erreur {
+      @extend %carte__chargement--erreur;
+    }
   }
 }
 
