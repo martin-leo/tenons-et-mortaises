@@ -80,14 +80,17 @@
   @extend %conteneur--marges-verticales-absentes;
   font-size: #{map-get($typographie__tailles, 'xl')};
   background: rgba( map-get($couleurs, 'principale') ,0);
+  transition: background 1s;
   &:hover {
     background: rgba( map-get($couleurs, 'principale') ,1);
-    color: mix(
-                map-get($couleurs, 'principale'),
-                darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
-                5%
-                );
-    transition: all 1s;
+    & a {
+      color: mix(
+                  map-get($couleurs, 'principale'),
+                  darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
+                  5%
+                  );
+      transition: color 1s;
+    }
   }
 }
 

@@ -62,15 +62,19 @@
   }
 }
 
+%texte-colore {
+  color: mix(
+    map-get($couleurs, 'secondaire'),
+    map-get($couleurs, 'noir'),
+    90%
+  );
+}
+
 %figurer-liens {
   /*  */
   & a:not([href^="#fnref"]) {
     //border-bottom: 1px solid rgba( map-get($couleurs, 'principale'), .05 );
-    color: mix(
-              map-get($couleurs, 'secondaire'),
-              map-get($couleurs, 'noir'),
-              90%
-              );
+    @extend %texte-colore;
     &::after {
       color: map-get($couleurs, 'noir');
       vertical-align: super;
