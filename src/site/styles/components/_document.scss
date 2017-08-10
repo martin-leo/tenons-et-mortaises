@@ -75,6 +75,16 @@
   }
 }
 
+%document__carte {
+  @extend %document__contenu;
+  margin-top: ms(0);
+}
+
+%document__carte__titre {
+  @extend %titrage;
+  margin-bottom: ms(0);
+}
+
 %document__objets-associes {
   @extend %document__element--largeur-limitee;
   margin-top: ms(2);
@@ -141,6 +151,12 @@
       &--theme {
         @extend %document__aside__titre--cache;
       }
+    }
+  }
+  &__carte {
+    @extend %document__carte;
+    &__titre {
+      @extend %document__carte__titre;
     }
   }
   &__objets-associes, &__objets-satellites {
