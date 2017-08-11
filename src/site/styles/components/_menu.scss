@@ -43,6 +43,7 @@
   display: none;
   border: none;
   background: none;
+  cursor: pointer;
   color: #{map-get($couleurs, 'noir')};
   @include respond-to('tablette-et-mobile') {
     // sur tablette et mobile

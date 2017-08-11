@@ -8,6 +8,7 @@ ui.bouton_carte = (function(){
         * clic : basculer carte
     */
     ui.elements.bouton_carte.addEventListener('touchend', touch , false);
+    ui.elements.bouton_carte.addEventListener('click', touch , false);
   }
 
   function touch ( evenement ) {
