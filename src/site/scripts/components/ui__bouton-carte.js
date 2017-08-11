@@ -7,7 +7,14 @@ ui.bouton_carte = (function(){
     /* ajoute les écouteurs à l'élément HTML bouton carte :
         * clic : basculer carte
     */
-    ui.elements.bouton_carte.addEventListener('click', ui.carte.basculer , false);
+    ui.elements.bouton_carte.addEventListener('touchend', touch , false);
+  }
+
+  function touch ( evenement ) {
+    /*  */
+    //console.log( evenement );
+    evenement.preventDefault();
+    ui.carte.basculer();
   }
 
   composant.on = function () {
@@ -27,6 +34,12 @@ ui.bouton_carte = (function(){
     // on initialise l'attribut data-pictogramme--on
     console.log(ui.elements.bouton_carte.innerHTML);
     ui.elements.bouton_carte.setAttribute('data-pictogramme--on', ui.elements.bouton_carte.innerHTML);
+
+    if ( ui.elements.carte.classList.contains( 'active' ) ) {
+      composant.off();
+    } else {
+      composant.on();
+    }
   };
 
   return composant;

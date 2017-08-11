@@ -54,6 +54,7 @@
     display: block;
     overflow: hidden;
   }
+  &:focus { outline: 0; } // pas be bord bleu lorsque cliqué ni après
 }
 
 %menu__bouton--ouvrir-menu {

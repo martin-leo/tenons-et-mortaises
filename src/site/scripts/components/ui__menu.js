@@ -21,9 +21,11 @@ ui.menu = (function(){
     /* bascule entre activé/désactiver */
 
     if ( composant.actif ) {
-      composant.desactiver();
-    } else {
       composant.activer();
+      composant.actif = false;
+    } else {
+      composant.desactiver();
+      composant.actif = true;
     }
 
   };
@@ -48,13 +50,33 @@ ui.menu = (function(){
     /* ajoute les écouteurs à l'élément HTML carte :
         * activation au survol
     */
-    console.log('ajout_des_ecouteurs', ui.elements.menu);
-    ui.elements.menu.addEventListener('mouseover', composant.activer, false);
-    ui.elements.menu.addEventListener('mouseleave', composant.desactiver, false);
+    // console.log('ajout_des_ecouteurs', ui.elements.menu);
+    ui.elements.menu.addEventListener('mouseover', mouseover, false);
+    ui.elements.menu.addEventListener('mouseleave', mouseleave, false);
 
     // gestion du boutons menu sur mobile (le bouton carte à son propre composant)
-    ui.elements.bouton_menu.addEventListener('click', composant.basculer, false);
+    ui.elements.bouton_menu.addEventListener('click', click, false);
   }
+
+  function mouseover ( evenement ) {
+    // console.log ( evenement );
+    evenement.preventDefault();
+    composant.activer();
+  }
+
+  function mouseleave ( evenement ) {
+    // console.log ( evenement );
+    evenement.preventDefault();
+    composant.desactiver()
+  }
+
+  function click ( evenement ) {
+    // console.log ( evenement );
+    evenement.preventDefault();
+    composant.basculer()
+  }
+
+
 
   composant.initialiser = function () {
     /* initialise le composant */

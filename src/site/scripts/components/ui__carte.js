@@ -5,7 +5,7 @@ ui.carte = (function(){
   var chargement = document.getElementById( "carte__chargement" );
 
   // composant actif ?
-  composant.actif = false;
+  composant.actif = ui.elements.carte.classList.contains( 'active' );
 
   composant.activer = function () {
     /* ajoute la classe 'active' à l'élément HTML carte et l'enlève de l'élément document */
