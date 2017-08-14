@@ -1,7 +1,7 @@
 <?php
-include_once("./abstracts/initialisation.php");
 include_once("./abstracts/classes.php");
 include_once("./abstracts/functions.php");
+include_once("./abstracts/initialisation.php");
 
 include_once("./controllers/pages/objet.php");
 

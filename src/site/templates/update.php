@@ -1,6 +1,6 @@
 <?php
-  include_once("./abstracts/initialisation.php");
   include_once("./abstracts/classes.php");
+  include_once("./abstracts/initialisation.php");
   /*  Script de mise à jour de la représentation JSON de la BDD
       Le JSON issu vise à l'affichage sur la carte pilotée par d3.js
       Les données représentées sont partielles :

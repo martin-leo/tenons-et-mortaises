@@ -1,7 +1,7 @@
 <?php
-include_once("./abstracts/initialisation.php");
 include_once("./abstracts/classes.php");
 include_once("./abstracts/functions.php");
+include_once("./abstracts/initialisation.php");
 
 $head__scripts = "<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>";
 
