@@ -33,7 +33,7 @@
 
 		<nav class="objets-recents">
 
-			<h2 class="objets-recents__titre--theme">publié récemment</h2>
+			<h2 class="objets-recents__titre--theme">Dans cette thématique&nbsp;:</h2>
 
 			<ul class="liste-d-articles">
 
@@ -49,8 +49,6 @@
 				<?php } ?>
 
 			</ul>
-
-			<button class="liste-d-articles__charger-plus">afficher davantages de résultat</button>
 
 		</nav>
 
