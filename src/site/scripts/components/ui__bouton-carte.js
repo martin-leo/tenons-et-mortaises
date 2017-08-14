@@ -20,6 +20,7 @@ ui.bouton_carte = (function(){
 
   composant.on = function () {
     /* bouton apparence on */
+    ui.infobulle.cacher();
     ui.elements.bouton_carte.innerHTML = ui.elements.bouton_carte.getAttribute('data-pictogramme--on');
   };
 
