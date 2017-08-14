@@ -74,7 +74,6 @@
   /*  */
   & a:not([href^="#fnref"]) {
     //border-bottom: 1px solid rgba( map-get($couleurs, 'principale'), .05 );
-    @extend %texte-colore;
     &::after {
       color: map-get($couleurs, 'noir');
       vertical-align: super;
