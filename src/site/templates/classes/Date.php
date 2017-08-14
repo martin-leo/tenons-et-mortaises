@@ -44,7 +44,7 @@ class PW_Date {
 
   public function date_traitee ( $date ) {
     /* */
-    return utf8_encode( strftime('%d %B %Y', $date) );
+    return strftime('%d %B %Y', $date);
   }
 
   public function __toString() {
