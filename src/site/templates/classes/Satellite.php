@@ -13,6 +13,9 @@ class Satellite {
     $this->nom = $satellite->title;
     $this->url = $satellite->httpUrl;
     $this->image = $satellite->image_principale;
+    if ( $this->image == "" ) {
+      $this->image = wire("pages")->get(1)->image_principale;
+    }
     $this->auteurs = new Auteurs ( $satellite->auteurs );
     $this->dates = new PW_Date( $satellite );
     $this->origine = substr( $satellite->origine, 3, -4);

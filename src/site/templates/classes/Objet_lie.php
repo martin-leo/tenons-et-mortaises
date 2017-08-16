@@ -16,7 +16,10 @@ class Objet_lie {
     $this->id = $objet->id;
     $this->nom = $objet->title;
     $this->url = $objet->httpUrl;
-    $this->image = $objet->image_principale;
+    $this->image = $satellite->image_principale;
+    if ( $this->image == "" ) {
+      $this->image = wire("pages")->get(1)->image_principale;
+    }
     $this->dates = new PW_Date( $objet );
     //$this->origine = substr( $objet->origine , 3, -4);
   }
