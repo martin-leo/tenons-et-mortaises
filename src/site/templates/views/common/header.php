@@ -5,6 +5,7 @@
     <title><?php echo $page->title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     /* <!-- Métadonnées --> */
+    <link rel="canonical" href="http://tenonsetmortaises.net/" />
     <meta name="description" content="<?php echo $page->metadonnees->description; ?>">
     /* <!-- Twitter Cards --> */
     <meta name="twitter:card" content="summary">
