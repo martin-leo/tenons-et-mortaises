@@ -13,11 +13,11 @@ class Page_racine {
     /* Constructeur
     Page -> Void */
 
-    $this->themes = [];
+    $this->enfants = [];
     $this->breadcrumbs = new Breadcrumbs ( $page );
 
-    foreach ($page->children as $theme) {
-      array_push($this->themes, new Theme ( $theme ) );
+    foreach ($page->children as $enfant) {
+      array_push($this->enfants, new Page_simple ( $enfant ) );
     }
   }
 
@@ -25,8 +25,8 @@ class Page_racine {
     /*
     Void -> String */
     $sortie = "";
-    foreach ( $this->themes as $theme ) {
-      $sortie .= "<li class=\"themes__item\">$theme</li>";
+    foreach ( $this->enfants as $enfant ) {
+      $sortie .= "<li class=\"liste__item\">$enfant</li>";
     }
     return $sortie;
   }
