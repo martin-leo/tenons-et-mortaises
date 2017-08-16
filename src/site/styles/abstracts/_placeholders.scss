@@ -131,3 +131,14 @@
   // graisse de typo référence
   font-weight: #{map-get($typographie__graisse-par-defaut, 'alternate')};
 }
+
+%filtre-image-actif {
+  @include respond-to('desktop') {
+    filter: grayscale(100%) opacity(50%);
+    transition: all 1s;
+  }
+}
+
+%filtre-image-inactif {
+  filter: grayscale(0%) opacity(100%);
+}

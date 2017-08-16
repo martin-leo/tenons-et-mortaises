@@ -26,10 +26,9 @@
   order: -1;
   background: #{map-get($couleurs, 'todo--fond')};
   & img {
-    filter: grayscale(100%) opacity(50%);
-    transition: all 1s;
+    @extend %filtre-image-actif;
     &:hover {
-      filter: grayscale(0%) opacity(100%);
+      @extend %filtre-image-inactif;
     }
   }
 }
