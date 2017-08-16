@@ -27,7 +27,7 @@ class Page_objet {
       $this->nature = new Nature( $page );
       $this->themes_secondaires = [];
     }
-    $this->date_de_publication = utf8_encode( strftime('le %d %B %Y', $page->date_de_publication) ) ;
+    $this->date_de_publication = strftime('le %d %B %Y', $page->date_de_publication) ;
     $this->origine = substr( $page->origine , 3, -5); // en markdown, on vire les <p></p>
     $this->auteurs = new Auteurs( $page->auteurs ) ;
     $this->contenu = $page->contenu;
