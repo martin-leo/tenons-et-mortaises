@@ -47,7 +47,7 @@ class Satellite {
 
       if ( $this->url ) { $sortie .= "<a href=\"$this->url\">"; }
 
-      $sortie .= "<img src=\"$image__url\" alt=\"$image__description\">";
+      $sortie .= "<img class=\"lazyload\" data-src=\"$image__url\" alt=\"$image__description\">";
 
       if ( $this->url ) { $sortie .= "</a>"; }
 
