@@ -160,7 +160,7 @@
       @extend %document__carte__titre;
     }
   }
-  &__objets-associes, &__objets-satellites {
+  &__objets-associes, &__objets-satellites, &__objets-publies {
     @extend %document__objets-associes;
     &__titre {
       @extend %document__objets-associes__titre;

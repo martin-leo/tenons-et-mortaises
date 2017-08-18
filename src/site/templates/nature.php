@@ -1,11 +1,15 @@
 <?php
-include_once("./_init.php");
-include_once("./_func.php");
+include_once("./abstracts/classes.php");
+include_once("./abstracts/functions.php");
+include_once("./abstracts/initialisation.php");
 
-include_once("./view/common/v_header.php"); // header
+include_once("./controllers/pages/nature.php"); // controller
 
-include_once("./controller/pages/c_nature.php"); // controller
-include_once("./view/pages/v_nature.php"); // view
+include_once("./views/common/header.php"); // header
 
-include_once("./view/common/v_footer.php"); // footer
+include_once("./views/common/carte.php");
+include_once("./views/common/menu.php");
+include_once("./views/pages/nature.php");
+
+include_once("./views/common/footer.php"); // footer
 ?>
