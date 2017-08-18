@@ -8,7 +8,7 @@ class Page_theme {
     * image principale (image_principale)
     * descendants
   */
-  public $titre, $contenu, $breadcrumbs, $image_principale, $enfants, $descendants;
+  public $titre, $contenu, $breadcrumbs, $image_principale, $enfants, $petits_enfants, $descendants;
 
 
   private function tri_descendants ($a, $b) {
