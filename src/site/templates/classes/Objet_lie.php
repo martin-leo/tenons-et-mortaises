@@ -16,7 +16,7 @@ class Objet_lie {
     $this->id = $objet->id;
     $this->nom = $objet->title;
     $this->url = $objet->httpUrl;
-    $this->image = $satellite->image_principale;
+    $this->image = $objet->image_principale;
     if ( $this->image == "" ) {
       $this->image = wire("pages")->get(1)->image_principale;
     }
