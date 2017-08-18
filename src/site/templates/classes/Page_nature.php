@@ -18,14 +18,19 @@ class Page_nature {
     $this->breadcrumbs = new Breadcrumbs ( $page );
     $this->contenu = $page->zone_de_texte;
     $this->image_principale = $page->image_principale ;
-    $selecteur = "nature.title=" . $page->title;
-    $selection = wire("pages")->find( $selecteur );
     $this->objets = [];
+
+    $selection = $this->obtenir_selection( $page );
 
     foreach ( $selection as $objet ) {
       array_push($this->objets, new Objet_lie ( $objet ) );
     }
+  }
 
+  public function obtenir_selection ( $page ) {
+    $selecteur = "nature.title%=" . $page->title;
+    $selection = wire("pages")->find( $selecteur );
+    return $selection;
   }
 
   public function __toString() {
