@@ -61,6 +61,7 @@
 %document__contenu--zone-de-texte {
   @extend %document__contenu;
   @extend %zone-de-texte;
+  @extend %figurer-liens-mobile;
 }
 
 %document__pied-de-page {

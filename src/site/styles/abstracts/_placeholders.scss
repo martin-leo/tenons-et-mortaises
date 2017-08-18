@@ -63,11 +63,7 @@
 }
 
 %texte-colore {
-  color: mix(
-    map-get($couleurs, 'secondaire'),
-    map-get($couleurs, 'noir'),
-    90%
-  );
+  color: map-get($couleurs, 'texte coloré');
 }
 
 %figurer-liens {
@@ -80,6 +76,14 @@
       content: '↩';
       font-size: 0.5em;
       margin-left: 0.25em;
+    }
+  }
+}
+
+%figurer-liens-mobile {
+  @include respond-to('tablette-et-mobile') {
+    & a:not([href^="#fnref"]) {
+      color: map-get($couleurs, 'texte coloré');
     }
   }
 }

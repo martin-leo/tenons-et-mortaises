@@ -167,6 +167,15 @@ $couleurs: (
   'todo--fond' :            hsl(300, $couleurs--saturation, $couleurs--luminosite/2),
 ) !default;
 
+$couleurs: map-merge(
+                      $couleurs,
+                      ( 'texte coloré' : mix(
+                                            map-get($couleurs, 'secondaire'),
+                                            map-get($couleurs, 'noir'),
+                                            90%
+                                          ))
+                      );
+
 
 // z-index
 
