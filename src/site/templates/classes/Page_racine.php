@@ -16,7 +16,7 @@ class Page_racine {
     $this->enfants = [];
     $this->breadcrumbs = new Breadcrumbs ( $page );
 
-    foreach ($page->children as $enfant) {
+    foreach ($page->children("sort=title") as $enfant) {
       array_push($this->enfants, new Page_simple ( $enfant ) );
     }
   }
