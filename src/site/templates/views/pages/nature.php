@@ -31,7 +31,7 @@
 
 		<nav class="document__objets-publies">
 
-			<h2 class="document__objets-publies">objets publiés</h2>
+			<h2 class="document__objets-publies__titre">objets publiés</h2>
 
 			<ul class="liste-d-articles--avec-iconographie">
 
