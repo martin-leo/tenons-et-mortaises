@@ -3,6 +3,7 @@ include_once("./abstracts/classes.php");
 include_once("./abstracts/functions.php");
 include_once("./abstracts/initialisation.php");
 
+include_once("./controllers/common/menu.php"); // header
 include_once("./controllers/pages/auteur.php"); // controller
 
 include_once("./views/common/header.php"); // header

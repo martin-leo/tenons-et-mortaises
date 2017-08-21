@@ -5,6 +5,7 @@ include_once("./abstracts/initialisation.php");
 
 $head__scripts = "<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>";
 
+include_once("./controllers/common/menu.php"); // header
 include_once("./controllers/pages/evenement.php");
 
 include_once("./views/common/header.php"); // header

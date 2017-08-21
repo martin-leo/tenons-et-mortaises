@@ -5,6 +5,7 @@ include_once("./abstracts/initialisation.php");
 
 include_once("./controllers/pages/racine.php");
 
+include_once("./controllers/common/menu.php"); // header
 include_once("./views/common/header.php"); // header
 
 include_once("./views/common/carte.php");

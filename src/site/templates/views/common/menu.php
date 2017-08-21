@@ -9,14 +9,6 @@
 
 	</header>
 
-	<ul class="menu__liste">
-		<li class="menu__item"><a class="menu__lien" href="<?php echo $config->urls->root?>manifeste">manifeste</a></li>
-		<li class="menu__item"><a class="menu__lien" href="<?php echo $config->urls->root?>objets-recents">objets</a></li>
-		<li class="menu__item"><a class="menu__lien" href="#">événements</a></li>
-		<li class="menu__item"><a class="menu__lien" href="<?php echo $config->urls->root?>themes">thèmes</a></li>
-		<li class="menu__item"><a class="menu__lien" href="#">natures</a></li>
-		<li class="menu__item"><a class="menu__lien" href="#">archives</a></li>
-		<li class="menu__item"><a class="menu__lien" href="#">à propos</a></li>
-	</ul>
+	<ul class="menu__liste"><?php echo $page->menu; ?></ul>
 
 </nav>
