@@ -22,22 +22,6 @@
   @extend %sur-trois-colonnes-deux-sur-tablette-une-sur-mobile;
 }
 
-%liste-d-articles__charger-plus {
-  width: 100%;
-  padding: ms(0);
-  margin: ms(4) 0 ms(0) 0;
-  font-size: #{map-get($typographie__tailles, 'm')};
-  background: #{map-get($couleurs, 'secondaire')};
-  color: #{map-get($couleurs, 'blanc')};
-  border: none;
-  transition: background 1s;
-  &:active {
-    background: #{map-get($couleurs, 'noir')};
-    color: #{map-get($couleurs, 'blanc')};
-    transition: background 0s;
-  }
-}
-
 .liste-d-articles {
 
   @extend %liste-d-articles !optional;
@@ -52,9 +36,5 @@
     &--avec-iconographie {
       @extend %liste-d-articles__item--avec-iconographie;
     }
-  }
-
-  &__charger-plus {
-    @extend %liste-d-articles__charger-plus;
   }
 }
