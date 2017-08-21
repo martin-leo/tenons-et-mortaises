@@ -17,7 +17,7 @@ class Objet_lie {
     $this->nom = $objet->title;
     $this->url = $objet->httpUrl;
     $this->image = $objet->image_principale;
-    if ( $this->image == "" ) {
+    if ( !$this->image ) {
       $this->image = wire("pages")->get(1)->image_principale;
     }
     $this->dates = new PW_Date( $objet );
