@@ -19,7 +19,7 @@ class PW_Date {
       $this->type = 0;
     } elseif ( $objet->template == "evenement" ) {
       // si on a une date de fin
-      if ( $objet->date_de_fin ) {
+      if ( $objet->date_de_fin != $objet->date_de_debut ) {
         $this->type = 2;
       } else {
         $this->type = 1;
