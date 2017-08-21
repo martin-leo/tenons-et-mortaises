@@ -77,6 +77,13 @@ h4 { font-size: ms(3); }
 h5 { font-size: ms(2); }
 h6 { font-size: ms(1); }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height:#{map-get($typographie__interlignages, 'titres')};
+
+  // on rattrappe le blanc perdu en diminuant l'interlignage
+  margin-bottom: #{ map-get($typographie__interlignages, 'default') - map-get($typographie__interlignages, 'titres') * 1rem };
+}
+
 img {
   max-width: 100%;
 }
