@@ -63,6 +63,20 @@ cartographie.tem_data = (function () {
 
         // on prend en compte sur la carte le chargement
         ui.carte.etat( 'chargé' );
+
+        //on zoom (avec délai sinon le svg > g ne se met pas en place)
+        window.setTimeout(resize_avec_delai, 100);
+
+        function resize_avec_delai () {
+        console.log('resize_avec_delai');
+          cartographie.carte.resize();
+          window.setTimeout(zoom_avec_delai, 100);
+        }
+
+        function zoom_avec_delai () {
+        console.log('zoom_avec_delai');
+          cartographie.zoom.init();
+        }
       }
     });
   };

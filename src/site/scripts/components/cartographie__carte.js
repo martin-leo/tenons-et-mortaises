@@ -74,6 +74,28 @@ cartographie.carte = (function () {
     2. Fonctions utiles
   ---------- */
 
+  objet_carte.zoom = function ( niveau_de_zoom ) {
+    /**/
+    var centre = {};
+
+    console.log('width',width, 'height',height)
+
+    centre.x = width/2;
+    centre.y = height/2;
+
+    var translate = zoom.translate();
+
+    var x = translate[0];
+    var y = translate[1];
+
+    x = ( x - centre.x ) * niveau_de_zoom + centre.x;
+    y = ( y  - centre.y ) * niveau_de_zoom + centre.y;
+
+    zoom.scale( niveau_de_zoom )
+      .translate([x,y])
+      .event(svg);
+  }
+
   function link_distance(d){
     /* Différenciation des tailles de liens
     -> liens racine -> thème
@@ -189,6 +211,7 @@ cartographie.carte = (function () {
     svg = d3.select("#carte").append("svg").attr("width", width).attr("height", height);
     // création du zoom
     zoom = d3.behavior.zoom().scaleExtent([zoom_min, zoom_max]);
+    console.log('zoom', zoom);
     // création d'un conteneur dans svg et stockage dans var conteneur
     conteneur = svg.append("g");
   };
@@ -329,6 +352,7 @@ cartographie.carte = (function () {
       // variables de travail
       var translate = d3.event.translate;
       var scale = d3.event.scale;
+      console.log('translate :', translate, 'scale', scale );
 
       // on enregistre les infos dans une propriété
       objet_carte.transformations.scale = scale;
