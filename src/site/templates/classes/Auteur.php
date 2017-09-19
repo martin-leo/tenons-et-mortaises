@@ -8,13 +8,13 @@ class Auteur {
 
   public $nom, $texte, $url;
 
-  public function __construct( $auteur ) {
+public function __construct( /*$auteur*/ ) {
     /* Constructeur
     Page -> Void */
 
-    $this->nom = $auteur->auteur->title;
-    $this->texte = $auteur->auteur->zone_de_texte;
-    $this->url = $auteur->auteur->httpUrl;
+    $this->nom = 'Auteur';//$auteur->auteur->title;
+    $this->texte = '';//$auteur->auteur->zone_de_texte;
+    $this->url = '#';//$auteur->auteur->httpUrl;
   }
 
   public function toString () {

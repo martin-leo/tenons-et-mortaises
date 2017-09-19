@@ -8,10 +8,12 @@
 %infobulle__titre {
   @extend %typographie--alternate;
   font-size: #{map-get($typographie__tailles, 'm')};
+  margin-bottom: 0; // temp todo virer
 }
 
 %infobulle__texte {
   font-size: #{map-get($typographie__tailles, 's')};
+  @extend %cache;
 }
 
 %infobulle__texte--vide {

@@ -66,20 +66,20 @@ cartographie.tem_data = (function () {
 
         //on zoom (avec délai sinon le svg > g ne se met pas en place)
         window.setTimeout(resize_avec_delai, 100);
-
-        function resize_avec_delai () {
-        console.log('resize_avec_delai');
-          cartographie.carte.resize();
-          window.setTimeout(zoom_avec_delai, 100);
-        }
-
-        function zoom_avec_delai () {
-        console.log('zoom_avec_delai');
-          cartographie.zoom.init();
-        }
       }
     });
   };
+
+  function resize_avec_delai () {
+  console.log('resize_avec_delai');
+    cartographie.carte.resize();
+    window.setTimeout(zoom_avec_delai, 100);
+  }
+
+  function zoom_avec_delai () {
+  console.log('zoom_avec_delai');
+    cartographie.zoom.init();
+  }
 
   function parcours_dfs_initial_nodes() {
     /* On parcours (DFS) le graph importé en modifiant

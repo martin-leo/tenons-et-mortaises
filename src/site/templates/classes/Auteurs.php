@@ -8,8 +8,9 @@ class Auteurs {
 
     $this->liste = [];
 
-    foreach ( $auteurs as $auteur) {
-      array_push( $this->liste, new Auteur( $auteur ) );
+    //foreach ( $auteurs as $auteur) {
+    for ($i=0; $i < 2; $i++) {
+      array_push( $this->liste, new Auteur( /*$auteur*/ ) );
     }
   }
 

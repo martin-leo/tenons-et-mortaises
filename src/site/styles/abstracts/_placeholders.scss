@@ -53,11 +53,12 @@
   text-transform: lowercase;
   font-variant: small-caps;
   font-style: italic;
-  color: rgba( map-get($couleurs, 'secondaire'), .5 );
+  //color: rgba( map-get($couleurs, 'secondaire'), .5 );
 
   & a:hover {
     /*  */
-    color: rgba( map-get($couleurs, 'secondaire'), 1 );
+    //color: rgba( map-get($couleurs, 'secondaire'), 1 );
+    color:rgb(0,128,0);
     transition: color 1s;
   }
 }

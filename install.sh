@@ -83,7 +83,6 @@ curl -LkS 'https://afarkas.github.io/lazysizes/lazysizes.js' -o lazysizes.min.js
 # déplacement des fichiers
 mv lazysizes.min.js additional_assets/js
 
-https://afarkas.github.io/lazysizes/lazysizes.min.js
 # ==========
 # installation des typographies nécessaires
 # structure de donnée

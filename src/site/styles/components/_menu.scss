@@ -82,8 +82,8 @@
   @extend %conteneur--marges-verticales-absentes;
   font-size: #{map-get($typographie__tailles, 'xl')};
   background: rgba( map-get($couleurs, 'principale') ,0);
-  transition: background 1s;
-  &:hover {
+  //transition: background 1s;
+  /*&:hover {
     background: rgba( map-get($couleurs, 'principale') ,1);
     & a {
       color: mix(
@@ -91,9 +91,9 @@
                   darken( map-get($couleurs, 'blanc'), 1 * $couleurs--seuil--pourcentage ),
                   5%
                   );
-      transition: color 1s;
+      transition: color .5s;
     }
-  }
+  }*/
 }
 
 %menu__lien {

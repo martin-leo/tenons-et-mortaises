@@ -71,10 +71,10 @@
 %document__parution {
   @extend %texte-de-niveau-n;
   @extend %figurer-liens;
-  &::before {
+  /*&::before {
     content: '⋮';
     margin-right: ms(-2);
-  }
+  }*/
 }
 
 %document__carte {
